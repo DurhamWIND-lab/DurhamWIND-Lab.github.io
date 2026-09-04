@@ -1,0 +1,113 @@
+# Builds the site with the real GitHub Pages toolchain on every branch and
+# pull request, so a broken template or a bad data edit fails here rather than
+# on main.
+#
+# It also uploads the built site as a downloadable artifact, which is the
+# quickest way to see exactly what GitHub Pages will produce without publishing
+# anything. Actions -> this run -> Artifacts -> site-preview. Unzip it, then:
+#
+#     python -m http.server 4000
+#
+# and open http://localhost:4000. (A plain file:// open will not work — the
+# pages use directory permalinks such as /people/.)
+
+name: Build check
+
+on:
+  push:
+    branches-ignore: [gh-pages]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the synced data is present and consistent
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pyyaml
+          python - <<'PY'
+          import pathlib, sys, yaml
+          data = pathlib.Path("_data")
+          missing = [f for f in ("site", "people", "publications", "projects")
+                     if not (data / f"{f}.yml").exists()]
+          if missing:
+              sys.exit(f"Missing _data files: {missing}. Has the sync workflow run?")
+          site = yaml.safe_load((data / "site.yml").read_text(encoding="utf-8"))
+          people = yaml.safe_load((data / "people.yml").read_text(encoding="utf-8"))
+          pubs = yaml.safe_load((data / "publications.yml").read_text(encoding="utf-8"))
+          projects = yaml.safe_load((data / "projects.yml").read_text(encoding="utf-8"))
+
+          roles = {r["key"] for r in site["roles"]}
+          expertise = set(site.get("expertise") or {})
+          themes = set(site.get("themes") or {})
+          ids = {p["id"] for p in people}
+          errors = []
+
+          for p in people:
+              if p["role"] not in roles:
+                  errors.append(f"{p['name']}: unknown role {p['role']!r}")
+              for tag in p.get("expertise") or []:
+                  if tag not in expertise:
+                      errors.append(f"{p['name']}: unknown expertise {tag!r}")
+              photo = p.get("photo")
+              if photo and not (pathlib.Path("assets/img/people") / photo).exists():
+                  errors.append(f"{p['name']}: missing photo {photo}")
+          for pub in pubs:
+              if pub.get("theme") and pub["theme"] not in themes:
+                  errors.append(f"{pub['title'][:40]!r}: unknown theme {pub['theme']!r}")
+          for t in projects:
+              if t["key"] not in themes:
+                  errors.append(f"project {t['key']!r}: not a site theme")
+              for pid in t.get("people") or []:
+                  if pid not in ids:
+                      errors.append(f"project {t['key']}: unknown person id {pid!r}")
+
+          if errors:
+              for e in errors:
+                  print(f"::error::{e}")
+              sys.exit(1)
+          print(f"OK — {len(people)} people, {len(pubs)} publications, {len(projects)} themes.")
+          PY
+
+      - name: Build with the GitHub Pages toolchain
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Check every expected page was produced
+        run: |
+          set -euo pipefail
+          for page in index.html people/index.html publications/index.html \
+                      research/index.html contact/index.html \
+                      assets/css/main.css sitemap.xml; do
+            if [ ! -s "_site/${page}" ]; then
+              echo "::error::_site/${page} is missing or empty"
+              exit 1
+            fi
+          done
+          # The People page must actually contain the people, not just render.
+          for name in "Majid Bastankhah" "Hossein Amini Kafiabad" "Nima Gerami-Seresht"; do
+            grep -q "$name" _site/people/index.html \
+              || { echo "::error::${name} missing from the built People page"; exit 1; }
+          done
+          echo "Built pages:"
+          find _site -name '*.html' | sort
+
+      - name: Upload the built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: _site
+          retention-days: 14
