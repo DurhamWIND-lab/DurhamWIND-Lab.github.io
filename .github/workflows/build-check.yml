@@ -49,17 +49,12 @@ jobs:
           projects = yaml.safe_load((data / "projects.yml").read_text(encoding="utf-8"))
 
           roles = {r["key"] for r in site["roles"]}
-          expertise = set(site.get("expertise") or {})
           themes = set(site.get("themes") or {})
-          ids = {p["id"] for p in people}
           errors = []
 
           for p in people:
               if p["role"] not in roles:
                   errors.append(f"{p['name']}: unknown role {p['role']!r}")
-              for tag in p.get("expertise") or []:
-                  if tag not in expertise:
-                      errors.append(f"{p['name']}: unknown expertise {tag!r}")
               photo = p.get("photo")
               if photo and not (pathlib.Path("assets/img/people") / photo).exists():
                   errors.append(f"{p['name']}: missing photo {photo}")
@@ -69,9 +64,6 @@ jobs:
           for t in projects:
               if t["key"] not in themes:
                   errors.append(f"project {t['key']!r}: not a site theme")
-              for pid in t.get("people") or []:
-                  if pid not in ids:
-                      errors.append(f"project {t['key']}: unknown person id {pid!r}")
 
           if errors:
               for e in errors:

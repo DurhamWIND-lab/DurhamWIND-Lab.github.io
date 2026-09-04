@@ -26,20 +26,6 @@ description: Research themes at DurhamWIND — wake models, atmospheric boundary
       <p>{{ theme.summary | strip_newlines | strip }}</p>
 
       <dl class="theme-meta">
-        {%- if theme.people and theme.people.size > 0 -%}
-        <div>
-          <dt>Who</dt>
-          <dd>
-            {%- for pid in theme.people -%}
-            {%- assign person = site.data.people | where: "id", pid | first -%}
-            {%- if person -%}
-            <a href="{{ '/people/' | relative_url }}#{{ person.id }}">{{ person.name }}</a>{% unless forloop.last %}, {% endunless %}
-            {%- endif -%}
-            {%- endfor -%}
-          </dd>
-        </div>
-        {%- endif -%}
-
         {%- if theme.partners -%}
         <div><dt>Partners</dt><dd>{{ theme.partners }}</dd></div>
         {%- endif -%}

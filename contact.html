@@ -33,11 +33,6 @@ description: Enquiries, collaboration and current openings for postdoctoral rese
         <p>
           <a href="{{ '/people/' | relative_url }}#{{ person.id }}"><strong>{{ person.name }}</strong></a><br>
           <span class="muted small">{{ person.department }}</span>
-          {%- if person.expertise %}<br><span class="muted small">
-            {%- for tag in person.expertise limit: 3 -%}
-            {{ data.expertise[tag] }}{% unless forloop.last %} · {% endunless %}
-            {%- endfor -%}
-          </span>{% endif -%}
           {%- if person.email %}<br><a class="small" href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif -%}
         </p>
         {%- endfor -%}

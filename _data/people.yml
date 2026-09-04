@@ -14,7 +14,6 @@
 # Fields: `name`, `role` and `title` are required. Everything else is optional
 # and is simply omitted from the rendered page when absent.
 #   role:      must match a `key` in site.yml -> roles
-#   expertise: must match keys in site.yml -> expertise
 #   photo:     filename inside Profile/Images/ (omit for the placeholder)
 # ---------------------------------------------------------------------------
 
@@ -27,14 +26,9 @@
   department: Department of Engineering
   photo: Majid.jpg
   email: majid.bastankhah@durham.ac.uk
-  expertise:
-    - wake-modelling
-    - aerodynamics
-    - experimental-fluid-mechanics
-    - atmospheric-boundary-layer
-    - turbulence
   links:
     scholar: https://scholar.google.com/citations?user=784pzQQAAAAJ&hl=en
+    orcid: https://orcid.org/0000-0002-1326-027X
     durham: https://www.durham.ac.uk/staff/majid-bastankhah/
     linkedin: https://www.linkedin.com/in/majid-bastankhah-23058240/
   bio: >
@@ -66,11 +60,6 @@
   department: Department of Mathematical Sciences
   photo: Hossein.jpg
   email: hossein.amini-kafiabad@durham.ac.uk
-  expertise:
-    - geophysical-fluid-dynamics
-    - turbulence
-    - applied-mathematics
-    - cfd-les
   links:
     website: https://kafiabad.com/
     scholar: https://scholar.google.com/citations?user=Rv1ZtYAAAAAJ&hl=en
@@ -99,13 +88,9 @@
   department: Department of Engineering
   photo: Nima.jpg
   email: nima.gerami-seresht@durham.ac.uk
-  expertise:
-    - machine-learning
-    - risk-resilience
-    - digital-infrastructure
-    - optimisation-control
   links:
     scholar: https://scholar.google.com/citations?hl=en&user=gNiWjhEAAAAJ
+    orcid: https://orcid.org/0000-0003-4408-0332
     durham: https://www.durham.ac.uk/staff/nima-gerami-seresht/
     linkedin: https://www.linkedin.com/in/nima-gerami-seresht/
   bio: >
@@ -121,6 +106,26 @@
     for wind farm projects: the deployment and delivery side of getting
     renewable capacity built.
 
+# TODO(Majid): drafted from Stefano's Durham staff page — worth his sign-off.
+- id: stefano-giani
+  name: Stefano Giani
+  title: Associate Professor
+  role: investigator
+  department: Department of Engineering
+  photo: Stefano.jpg
+  email: stefano.giani@durham.ac.uk
+  links:
+    orcid: https://orcid.org/0000-0002-8190-9958
+    durham: https://www.durham.ac.uk/staff/stefano-giani/
+  bio: >
+    I am an Associate Professor in High-Performance Computing in the Department
+    of Engineering, specialising in finite element methods applied to linear
+    and non-linear problems across solid mechanics, fluid dynamics, photonics,
+    acoustics and radiative heat transfer, with interests in discontinuous
+    Galerkin methods, error estimators, adaptivity, multi-level methods,
+    preconditioners and fracture. I also work on deep neural networks, applied
+    to problems from AI-based machine monitoring to language processing.
+
 # =========================== PHD STUDENTS ==================================
 
 - id: jordan-fuentes-holden
@@ -130,10 +135,6 @@
   department: Department of Engineering
   photo: Jordan.jpg
   email: jordan.p.fuentes-holden@durham.ac.uk
-  expertise:
-    - flow-control
-    - aerodynamics
-    - experimental-fluid-mechanics
   project: >
     I develop a smart wind turbine with trailing-edge flaps that can actively
     control the airflow around the blades and manipulate its wake to improve
@@ -151,10 +152,6 @@
   department: Department of Engineering
   photo: Mohammad.JPG
   email: mohammad.roshani@durham.ac.uk
-  expertise:
-    - floating-offshore
-    - wake-modelling
-    - aerodynamics
   bio: >
     I am a PhD student working on floating offshore wind at Durham University.
     I am interested in how wind flows interact with floating wind turbines,
@@ -171,10 +168,6 @@
   department: Department of Engineering
   photo: Alexia.jpg
   email: alexia.everley@durham.ac.uk
-  expertise:
-    - reduced-order-modelling
-    - atmospheric-boundary-layer
-    - applied-mathematics
   bio: >
     Having studied mathematics in the form of an MMath degree at Durham
     University, I am now a PhD student within the Department of Engineering at
@@ -196,24 +189,27 @@
   role: phd
   department: Department of Engineering
   email: ernesto.a.chimal-garcia@durham.ac.uk
-  expertise:
-    - geophysical-fluid-dynamics
-    - applied-mathematics
   supervisors:
     - Majid Bastankhah (Department of Engineering, Durham University)
     - Hossein Amini Kafiabad (Department of Mathematical Sciences, Durham University)
 
-# TODO(Majid): Same for Joshua — bio and project needed.
 - id: joshua-prowse
   name: Joshua Prowse
   title: PhD Student
   role: phd
   department: Department of Engineering
   email: joshua.prowse@durham.ac.uk
-  expertise:
-    - aerodynamics
+  bio: >
+    I graduated from Durham in 2025 with an MEng specialising in electrical
+    engineering.
+  project: >
+    Optimisation of wind farm power production using AI. During my PhD I will
+    be developing an artificial intelligence capable of optimising the control
+    parameters of a wind farm in response to changing wind conditions and to
+    power demand from the grid.
   supervisors:
-    - Majid Bastankhah (primary)
+    - Stefano Giani (primary)
+    - Majid Bastankhah
 
 # ---------------------------------------------------------------------------
 # TEMPLATE — copy, uncomment, fill in, delete what you don't need.
@@ -225,9 +221,6 @@
 #   department: Department of Engineering
 #   photo: Firstname.jpg            # in Profile/Images/ — omit for placeholder
 #   email: firstname.lastname@durham.ac.uk
-#   expertise:                      # keys from site.yml -> expertise
-#     - wake-modelling
-#     - machine-learning
 #   links:
 #     website: https://example.com
 #     scholar: https://scholar.google.com/citations?user=XXXX

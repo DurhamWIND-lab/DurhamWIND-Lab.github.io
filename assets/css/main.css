@@ -213,11 +213,6 @@ section + section { border-top: 1px solid var(--line); }
 .person-role { color: var(--purple); font-size: .88rem; font-weight: 550; margin: 0 0 .1rem; }
 .person-dept { color: var(--ink-faint); font-size: .84rem; margin: 0 0 .7rem; }
 
-.tags { display: flex; flex-wrap: wrap; gap: .3rem; margin: 0 0 .8rem; padding: 0; list-style: none; }
-.tags li {
-  font-size: .74rem; padding: .18rem .5rem; border-radius: 100px;
-  background: var(--bg-sink); color: var(--ink-soft); white-space: nowrap;
-}
 
 .person details { margin-top: auto; }
 .person details > summary {

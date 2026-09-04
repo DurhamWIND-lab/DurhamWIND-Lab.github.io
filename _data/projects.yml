@@ -5,7 +5,6 @@
 # home page. Each theme's `key` should match a key in site.yml -> themes so
 # publications tagged with it are listed automatically underneath.
 #
-# `people` holds `id` values from people.yml. `partners` and `funders` are
 # free text. Everything except `key`, `title` and `summary` is optional.
 # ---------------------------------------------------------------------------
 
@@ -18,7 +17,6 @@
     actually run inside an optimisation loop, without losing the physics that
     makes the answer right. Models developed here are implemented in FLORIS
     (NREL) and PyWake (DTU).
-  people: [majid-bastankhah, alexia-everley, mohammad-roshani]
 
 - key: abl-gfd
   title: Atmospheric boundary layer & geophysical fluid dynamics
@@ -29,7 +27,6 @@
     and the tools of geophysical fluid dynamics, including wave–vortex
     interaction and Lagrangian averaging methods drawn from atmospheric and
     ocean dynamics.
-  people: [hossein-amini-kafiabad, alexia-everley, andreo-chimal-garcia, majid-bastankhah]
 
 - key: experiments
   title: Wind tunnel experiments
@@ -38,7 +35,6 @@
     boundary-layer flows: miniature rotor design, wake structure and flow
     dynamics, and the scaling questions that decide whether a tunnel result
     says anything about a real farm.
-  people: [majid-bastankhah, jordan-fuentes-holden]
 
 - key: control
   title: Wake steering & flow control
@@ -47,7 +43,6 @@
     the blade itself. Work spans analytical models of curled and skewed wakes
     behind yawed rotors, validation against operational wind farm campaigns,
     and smart rotors with actively actuated trailing-edge surfaces.
-  people: [majid-bastankhah, jordan-fuentes-holden, joshua-prowse]
 
 - key: floating
   title: Floating offshore wind
@@ -55,7 +50,6 @@
     Floating platforms move in all six degrees of freedom, and the wake moves
     with them. We study how platform motion changes wake behaviour and what
     that means for wake steering, loads and economics in floating farms.
-  people: [mohammad-roshani, majid-bastankhah]
   partners: EDF R&D
 
 - key: systems
@@ -65,4 +59,3 @@
     reserve scheduling that accounts for wake interactions, and AI-based risk
     identification and assessment for wind farm projects — the modelling that
     sits between a good rotor and a working grid asset.
-  people: [nima-gerami-seresht, majid-bastankhah]

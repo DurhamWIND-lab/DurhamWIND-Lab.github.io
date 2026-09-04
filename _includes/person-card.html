@@ -3,7 +3,6 @@
   Every field except name/title/role is optional and simply drops out.
 {%- endcomment -%}
 {%- assign p = include.person -%}
-{%- assign vocab = site.data.site.expertise -%}
 
 <article class="person">
   {%- if p.photo -%}
@@ -20,14 +19,6 @@
     <h3 id="{{ p.id }}">{{ p.name }}</h3>
     <p class="person-role">{{ p.title }}</p>
     {%- if p.department %}<p class="person-dept">{{ p.department }}, Durham University</p>{% endif -%}
-
-    {%- if p.expertise and p.expertise.size > 0 -%}
-    <ul class="tags">
-      {%- for tag in p.expertise -%}
-      <li>{{ vocab[tag] | default: tag }}</li>
-      {%- endfor -%}
-    </ul>
-    {%- endif -%}
 
     {%- assign has_detail = false -%}
     {%- if p.bio or p.project or p.supervisors or p.roles_extra or p.alum_note -%}{%- assign has_detail = true -%}{%- endif -%}

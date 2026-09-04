@@ -244,3 +244,24 @@
   theme: wake-models
   featured: true
   note: "The Gaussian wake model, implemented in FLORIS (NREL) and PyWake (DTU)"
+
+
+- year: 2021
+  title: "Developing a risk breakdown matrix for onshore wind farm projects using fuzzy case-based reasoning"
+  authors: "Somi, S., Gerami Seresht, N., & Fayek, A. R."
+  venue: "Journal of Cleaner Production, 311, 127572"
+  doi: https://doi.org/10.1016/j.jclepro.2021.127572
+  theme: systems    # guessed — confirm
+  # via ORCID: Nima Gerami-Seresht
+
+
+
+- year: 2020
+  title: "Framework for Risk Identification of Renewable Energy Projects Using Fuzzy Case-Based Reasoning"
+  authors: "Somi, S., Gerami Seresht, N., & Fayek, A. R."
+  venue: "Sustainability, 12, 5231"
+  doi: https://doi.org/10.3390/su12135231
+  theme: systems    # guessed — confirm
+  # via ORCID: Nima Gerami-Seresht
+
+

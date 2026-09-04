@@ -59,29 +59,6 @@ roles:
     label: Alumni
     blurb: ""
 
-# --- Expertise vocabulary ---------------------------------------------------
-# Rendered as a keyword line beneath each person's name. Add a person from a
-# new field? Add the term here, then reference its key in people.yml.
-# (Not currently used as a filter — the group is small. The site template can
-# switch filtering on later without any change to the data.)
-expertise:
-  wake-modelling:            Wake modelling
-  aerodynamics:              Aerodynamics
-  geophysical-fluid-dynamics: Geophysical fluid dynamics
-  atmospheric-boundary-layer: Atmospheric boundary layer
-  turbulence:                Turbulence
-  experimental-fluid-mechanics: Experimental fluid mechanics
-  cfd-les:                   CFD & large-eddy simulation
-  applied-mathematics:       Applied mathematics
-  reduced-order-modelling:   Reduced-order modelling
-  machine-learning:          Machine learning
-  optimisation-control:      Optimisation & control
-  flow-control:              Flow control
-  floating-offshore:         Floating offshore wind
-  power-systems:             Power systems
-  risk-resilience:           Risk & resilience
-  digital-infrastructure:    Digital infrastructure
-
 # --- Author bolding ---------------------------------------------------------
 # Surnames bolded automatically in author lists on the Publications page, so
 # group members stand out. Add new members' surnames here.
