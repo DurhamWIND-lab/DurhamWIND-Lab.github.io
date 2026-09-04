@@ -8,44 +8,29 @@
 # free text. Everything except `key`, `title` and `summary` is optional.
 # ---------------------------------------------------------------------------
 
-- key: wake-models
-  title: Wake models & wind-farm flow physics
+# `feature: true` gives a theme the full width of the home page card grid.
+# This is the group's core theme and it absorbed three previous entries, so it
+# should not sit as one card among equals.
+#
+# The image is deliberately NOT wind_farm.png: that one is the home page's own
+# banner figure, and repeating it here would say the same thing twice.
+- key: farm-aero
+  title: Wind farm aerodynamics
   summary: >
-    Fast, physically grounded analytical models of how a turbine's wake
-    develops and how wakes accumulate across a farm. The aim is always the
-    same: strip the governing equations back to something a designer can
-    actually run inside an optimisation loop, without losing the physics that
-    makes the answer right. Models developed here are implemented in FLORIS
-    (NREL) and PyWake (DTU).
-  image: wake-structure.jpg
-  image_alt: >
-    Schematic of a wind turbine wake: tip and root vortices shed from the rotor, breaking down into a meandering turbulent wake downstream.
-
-- key: abl-gfd
-  title: Atmospheric boundary layer & geophysical fluid dynamics
-  summary: >
-    Wind farms are large enough to change the atmosphere they sit in. We study
-    that two-way coupling — farm-to-farm interaction, blockage, and the
-    large-scale response of the boundary layer — using reduced-order models
-    and the tools of geophysical fluid dynamics, including wave–vortex
-    interaction and Lagrangian averaging methods drawn from atmospheric and
-    ocean dynamics.
+    The group's core theme: understanding and predicting how wind turbines and
+    wind farms perform, and how they interact with the atmosphere around them.
+    That means wakes and blockage at both scales — within a farm, and between
+    neighbouring farms — along with the two-way coupling between a farm and the
+    boundary layer it sits in. We work on all of it with whichever tool the
+    question calls for: reduced-order models fast enough to run inside an
+    optimisation loop, high-fidelity simulation, and laboratory experiment in
+    the wind tunnel. Models developed here are implemented in FLORIS (NREL)
+    and PyWake (DTU).
+  feature: true
   image: farm-scales.jpg
   image_alt: >
     Three ways of modelling a wind farm: finite, using single wakes and superposition; infinite, as added surface roughness with top-down energy transport; and semi-infinite, with infinite width and finite length.
   image_credit: Bastankhah et al., J. Fluid Mech. 985, A43 (2024), CC BY 4.0
-
-- key: experiments
-  title: Wind tunnel experiments
-  summary: >
-    Laboratory measurements of turbines interacting with turbulent
-    boundary-layer flows: miniature rotor design, wake structure and flow
-    dynamics, and the scaling questions that decide whether a tunnel result
-    says anything about a real farm.
-  image: energy-conversion.jpg
-  image_alt: >
-    Energy conversion through a miniature wind turbine, from mechanical shaft power through friction and electrical losses to electrical output.
-  image_credit: Bastankhah & Porté-Agel, Energies 10, 908 (2017), CC BY 4.0
 
 - key: control
   title: Wake steering & flow control

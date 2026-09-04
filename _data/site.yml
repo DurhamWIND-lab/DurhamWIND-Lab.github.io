@@ -14,6 +14,26 @@ github_org: https://github.com/DurhamWIND-lab
 
 tagline: Atmospheric flow and wind energy dynamics at Durham University
 
+# --- Site header banner -----------------------------------------------------
+# The photo band across the top of every page on the website. The file lives in
+# Profile/Figures/ alongside the research figures. Clear `image` and the band
+# disappears — every page still renders, just without it.
+#
+# Use a wide, shallow photo: it is cropped to a band roughly 3.5:1 and anchored
+# so the skyline stays in frame as the viewport narrows.
+#
+# `logo` is optional and overlays the band. Leave it empty until an official
+# Durham University asset is in place: the logo is a trademark with its own
+# clear-space and colour rules, so it should come from the University's brand
+# portal rather than be recreated or pulled off the web.
+banner:
+  image: durham-cathedral.jpg
+  alt: >
+    Durham Castle and Cathedral on the wooded peninsula above the River Wear,
+    with Framwellgate Bridge crossing the river below.
+  logo: ""
+  logo_alt: Durham University
+
 # One paragraph. Used on the site home page and the org profile README.
 intro: >
   DurhamWIND is an interdisciplinary group at Durham University working on the
@@ -115,9 +135,8 @@ copy:
       One problem — understanding and improving how wind farms take energy out
       of the atmosphere.
     description: >
-      Research themes at DurhamWIND — wake models, atmospheric boundary layer
-      and geophysical fluid dynamics, wind tunnel experiments, wake steering
-      and flow control, floating offshore wind, and energy systems and risk.
+      Research themes at DurhamWIND — wind farm aerodynamics, wake steering and
+      flow control, floating offshore wind, and energy systems and risk.
     intro: >
       Our work runs from the aerodynamics of a single rotor through to the
       systems that get wind capacity built and delivered. What holds it
@@ -215,10 +234,15 @@ openings:
 
 # --- Publication themes -----------------------------------------------------
 # Used to tag entries in publications.yml and to group the Research page.
+#
+# `farm-aero` is deliberately one broad theme rather than several narrow ones.
+# It replaced three separate entries — wake models, atmospheric boundary layer
+# & GFD, and wind tunnel experiments — which split the same body of work by
+# method and by scale, and so read as three smaller efforts than the group
+# actually has. Method is not a theme: a reduced-order model, a high-fidelity
+# simulation and a wind tunnel campaign on the same question all belong here.
 themes:
-  wake-models:      Wake models & wind-farm flow physics
-  abl-gfd:          Atmospheric boundary layer & geophysical fluid dynamics
-  experiments:      Wind tunnel experiments
+  farm-aero:        Wind farm aerodynamics
   control:          Wake steering & flow control
   floating:         Floating offshore wind
   systems:          Energy systems, risk & deployment

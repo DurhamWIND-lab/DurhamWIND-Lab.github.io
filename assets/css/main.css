@@ -94,6 +94,37 @@ img { max-width: 100%; height: auto; }
 
 :focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; border-radius: 3px; }
 
+/* --- header banner -------------------------------------------------------- */
+
+/* A full-bleed photo band above the header.
+   Height, not aspect-ratio: `aspect-ratio` with a `max-height` shrinks the
+   BOX WIDTH to keep the ratio, so the band stops being full-bleed and floats
+   as a 910px slab in a 1200px window. Driving height directly keeps the band
+   edge to edge and lets the crop tighten instead.
+   The clamp keeps it from becoming a letterbox slit on a phone at the low end
+   and from eating the fold on a wide monitor at the high end;
+   `object-position` sits above centre so the castle and cathedral skyline
+   stays in frame as the crop tightens. */
+.site-banner {
+  position: relative; height: clamp(150px, 26vw, 330px);
+  background: var(--bg-sink);
+}
+.site-banner > img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 25%;
+}
+
+/* Optional university logo, bottom-left over the photo. The scrim behind it is
+   part of the logo box rather than the whole band: it keeps the mark legible
+   against sky or foliage without dimming the photograph. */
+.site-banner-logo {
+  position: absolute; left: max(1.25rem, calc((100% - var(--wrap)) / 2 + 1.25rem));
+  bottom: 1rem; height: clamp(28px, 5vw, 44px); width: auto;
+  padding: .5rem .7rem; border-radius: 8px;
+  background: color-mix(in srgb, #fff 82%, transparent);
+}
+
+
 /* --- header --------------------------------------------------------------- */
 
 .site-header {
@@ -220,6 +251,18 @@ section + section { border-top: 1px solid var(--line); }
 }
 .card .card-foot .card-link { align-self: auto; margin-top: 0; padding-top: 0; }
 .card-count { font-size: .82rem; color: var(--ink-faint); white-space: nowrap; }
+
+/* The group's core theme, spanning the whole grid. Tinted and rule-topped in
+   palatinate so it reads as the lead rather than a card that happens to be
+   wide. Its paragraph is measure-capped: full-bleed text at this width would
+   run past a comfortable line length. */
+.card-feature {
+  grid-column: 1 / -1;
+  background: var(--bg-tint);
+  border-top: 3px solid var(--purple);
+}
+.card-feature h3 { font-size: 1.3rem; }
+.card-feature > p { max-width: 78ch; font-size: 1rem; }
 
 /* --- people --------------------------------------------------------------- */
 

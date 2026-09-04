@@ -55,9 +55,23 @@ hide_header: true
     <div class="card-grid">
       {%- for theme in site.data.projects -%}
       {%- assign theme_pubs = site.data.publications | where: "theme", theme.key -%}
-      <div class="card">
+      {%- comment -%}
+        A theme with `feature: true` in projects.yml spans the whole grid. The
+        aerodynamics theme covers what used to be three separate entries, so as
+        one card among equals it would read as a quarter of the group's work
+        rather than the bulk of it.
+      {%- endcomment -%}
+      <div class="card{% if theme.feature %} card-feature{% endif %}">
         <h3>{{ theme.title }}</h3>
+        {%- comment -%}
+          The feature card has the width for the whole summary; the narrow ones
+          would run to a wall of text, so they keep the clamp.
+        {%- endcomment -%}
+        {%- if theme.feature -%}
+        <p>{{ theme.summary | strip_newlines | strip }}</p>
+        {%- else -%}
         <p>{{ theme.summary | strip_newlines | strip | truncatewords: 34 }}</p>
+        {%- endif -%}
         <p class="card-foot">
           <a class="card-link" href="{{ '/research/' | relative_url }}#{{ theme.key }}">Read more →</a>
           {%- if theme_pubs.size > 0 -%}

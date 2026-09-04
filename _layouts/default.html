@@ -27,6 +27,27 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
+{%- comment -%}
+  The photo band at the top of the page. Decorative rather than informational —
+  the group's name and tagline are in the header below and in the footer — so
+  the image carries its description in alt and the band adds no heading of its
+  own. It sits above the sticky header, so it scrolls away and leaves the nav
+  behind. Clearing `banner.image` in site.yml removes it.
+{%- endcomment -%}
+{%- assign banner = site.data.site.banner -%}
+{%- if banner.image -%}
+<div class="site-banner">
+  <img src="{{ '/assets/img/figures/' | append: banner.image | relative_url }}"
+       alt="{{ banner.alt | strip_newlines | strip }}"
+       loading="eager" fetchpriority="high">
+  {%- if banner.logo != "" -%}
+  <img class="site-banner-logo"
+       src="{{ '/assets/img/figures/' | append: banner.logo | relative_url }}"
+       alt="{{ banner.logo_alt }}">
+  {%- endif -%}
+</div>
+{%- endif -%}
+
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="{{ '/' | relative_url }}">

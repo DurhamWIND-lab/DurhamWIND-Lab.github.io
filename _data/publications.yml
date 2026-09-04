@@ -28,7 +28,7 @@
   doi: https://doi.org/10.1017/jfm.2026.11732
   repo: https://github.com/DurhamWIND-lab/Generalised-Actuator-Disk-theory
   preprint: https://arxiv.org/abs/2510.08213
-  theme: wake-models
+  theme: farm-aero
   featured: true
 
 - year: 2026
@@ -45,7 +45,7 @@
   authors: "Blondel, F., Jézéquel, E., Schottenhamml, H., & Bastankhah, M."
   venue: "Journal of Fluid Mechanics, 1037, A53"
   doi: https://doi.org/10.1017/jfm.2026.11685
-  theme: wake-models
+  theme: farm-aero
 
 - year: 2026
   title: "Assessing engineering wake models against operational data: insights from the Lillgrund wind farm wake steering campaign"
@@ -59,7 +59,7 @@
   authors: "Everley, A., Kafiabad, H. A., & Bastankhah, M."
   venue: "Journal of Physics: Conference Series, 3224(3), 032071"
   doi: https://doi.org/10.1088/1742-6596/3224/3/032071
-  theme: abl-gfd
+  theme: farm-aero
 
 - year: 2026
   title: "Feasibility study of implementing wake steering in floating wind farms: power gain, load estimation and economic analysis"
@@ -73,21 +73,21 @@
   authors: "Chanprasert, W., Bastankhah, M., Buxton, O., & Ivanell, S."
   venue: "Journal of Physics: Conference Series, 3016(1), 012052"
   doi: https://doi.org/10.1088/1742-6596/3016/1/012052
-  theme: wake-models
+  theme: farm-aero
 
 - year: 2025
   title: "Gaussian FLOWERS: wind-rose-based analytical integration of Gaussian wake model for extremely fast AEP estimation"
   authors: "Whittaker, C., LoCascio, M. J., Martínez-Tossas, L. A., Bay, C. J., & Bastankhah, M."
   venue: "Journal of Renewable and Sustainable Energy, 17(1), 013306"
   doi: https://doi.org/10.1063/5.0245886
-  theme: wake-models
+  theme: farm-aero
 
 - year: 2024
   title: "Modelling turbulence in axisymmetric wakes: an application to wind turbine wakes"
   authors: "Bastankhah, M., Zunder, J. K., Hydon, P. E., Deebank, C., & Placidi, M."
   venue: "Journal of Fluid Mechanics, 1000, A2"
   doi: https://doi.org/10.1017/jfm.2024.664
-  theme: wake-models
+  theme: farm-aero
   featured: true
   note: "Selected for the JFM Volume 1000 'Focus on Fluids' collection"
 
@@ -96,7 +96,7 @@
   authors: "LoCascio, M. J., Bay, C. J., Martínez-Tossas, L. A., Bastankhah, M., & Gorlé, C."
   venue: "Wind Energy, 27(12), 1563–1580"
   doi: https://doi.org/10.1002/we.2954
-  theme: wake-models
+  theme: farm-aero
 
 - year: 2024
   title: "Characterisation and integration of piezoelectric trimorph actuators for blade active surface control on a scaled wind turbine"
@@ -110,7 +110,7 @@
   authors: "Bastankhah, M., Mohammadi, M. M., Lees, C., Diaz, G. P. N., Buxton, O. R. H., & Ivanell, S."
   venue: "Journal of Fluid Mechanics, 985, A43"
   doi: https://doi.org/10.1017/jfm.2024.282
-  theme: wake-models
+  theme: farm-aero
   featured: true
 
 - year: 2024
@@ -146,7 +146,7 @@
   authors: "Bastankhah, M., Hamilton, N., & Bayoán Cal, R."
   venue: "Journal of Renewable and Sustainable Energy, 14(6), 060402"
   doi: https://doi.org/10.1063/5.0133993
-  theme: experiments
+  theme: farm-aero
 
 - year: 2022
   title: "A vortex sheet based analytical model of the curled wake behind yawed wind turbines"
@@ -161,7 +161,7 @@
   authors: "LoCascio, M. J., Bay, C. J., Bastankhah, M., Barter, G. E., Fleming, P. A., & Martínez-Tossas, L. A."
   venue: "Wind Energy Science, 7(3), 1137–1151"
   doi: https://doi.org/10.5194/wes-7-1137-2022
-  theme: wake-models
+  theme: farm-aero
 
 - year: 2021
   title: "Wake steering of multirotor wind turbines"
@@ -175,7 +175,7 @@
   authors: "Bastankhah, M., Welch, B. L., Martínez-Tossas, L. A., King, J., & Fleming, P."
   venue: "Journal of Fluid Mechanics, 911, A53"
   doi: https://doi.org/10.1017/jfm.2020.1037
-  theme: wake-models
+  theme: farm-aero
   featured: true
 
 - year: 2020
@@ -183,7 +183,7 @@
   authors: "Porté-Agel, F., Bastankhah, M., & Shamsoddin, S."
   venue: "Boundary-Layer Meteorology, 174, 1–59"
   doi: https://doi.org/10.1007/s10546-019-00473-0
-  theme: abl-gfd
+  theme: farm-aero
   featured: true
 
 - year: 2019
@@ -191,14 +191,14 @@
   authors: "Bastankhah, M., & Abkar, M."
   venue: "Physics of Fluids, 31(8), 085106"
   doi: https://doi.org/10.1063/1.5097285
-  theme: wake-models
+  theme: farm-aero
 
 - year: 2019
   title: "Round-robin tests of porous disc models"
   authors: "Aubrun, S., Bastankhah, M., Cal, R., Conan, B., Hearst, R., Hoek, D., … Zasso, A."
   venue: "Journal of Physics: Conference Series, 1256, 012004"
   doi: https://doi.org/10.1088/1742-6596/1256/1/012004
-  theme: experiments
+  theme: farm-aero
 
 - year: 2019
   title: "Wind farm power optimization via yaw angle control: a wind tunnel study"
@@ -212,21 +212,21 @@
   authors: "Bastankhah, M., & Porté-Agel, F."
   venue: "Energies, 10(7), 908"
   doi: https://doi.org/10.3390/en10070908
-  theme: experiments
+  theme: farm-aero
 
 - year: 2017
   title: "A new miniature wind turbine for wind tunnel experiments. Part II: wake structure and flow dynamics"
   authors: "Bastankhah, M., & Porté-Agel, F."
   venue: "Energies, 10(7), 923"
   doi: https://doi.org/10.3390/en10070923
-  theme: experiments
+  theme: farm-aero
 
 - year: 2017
   title: "Wind tunnel study of the wind turbine interaction with a boundary-layer flow: upwind region, turbine performance, and wake region"
   authors: "Bastankhah, M., & Porté-Agel, F."
   venue: "Physics of Fluids, 29(6), 065105"
   doi: https://doi.org/10.1063/1.4984078
-  theme: experiments
+  theme: farm-aero
 
 - year: 2016
   title: "Experimental and theoretical study of wind turbine wakes in yawed conditions"
@@ -241,7 +241,7 @@
   authors: "Bastankhah, M., & Porté-Agel, F."
   venue: "Renewable Energy, 70, 116–123"
   doi: https://doi.org/10.1016/j.renene.2014.01.002
-  theme: wake-models
+  theme: farm-aero
   featured: true
   note: "The Gaussian wake model, implemented in FLORIS (NREL) and PyWake (DTU)"
 

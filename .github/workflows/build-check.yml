@@ -81,6 +81,17 @@ jobs:
                   if not (home.get(alt_key) or "").strip():
                       errors.append(f"home {img_key}: {img} has no {alt_key}")
 
+          # The header banner sits on every page, so a missing file here is a
+          # broken image site-wide rather than on one page.
+          banner = site.get("banner") or {}
+          for img_key, alt_key in (("image", "alt"), ("logo", "logo_alt")):
+              img = banner.get(img_key)
+              if img:
+                  if not (figs / img).exists():
+                      errors.append(f"banner {img_key}: missing figure {img}")
+                  if not (banner.get(alt_key) or "").strip():
+                      errors.append(f"banner {img_key}: {img} has no {alt_key}")
+
           if errors:
               for e in errors:
                   print(f"::error::{e}")
