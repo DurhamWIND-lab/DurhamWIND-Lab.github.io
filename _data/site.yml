@@ -79,11 +79,14 @@ copy:
     hero_caption: The wake of a model turbine, measured in the wind tunnel.
     figure_image: wake-velocity-field.gif
     figure_alt: >
-      Animated velocity field behind a model wind turbine, the turbulent wake
-      fluctuating as it spreads downstream.
+      Animated wind tunnel measurements behind a model turbine, cycling between
+      the wind speed field, where the wake appears as a dark low-speed band,
+      and the vorticity field, where rows of tip and root vortices show as
+      discrete red and blue cores.
     figure_caption: >
-      The same measurement in motion — the wake is unsteady, and that
-      unsteadiness is what sets how quickly it recovers.
+      The same measurement in motion, in wind speed and then vorticity. The
+      wake is unsteady, and that unsteadiness is what sets how quickly it
+      recovers.
     themes_heading: Research themes
     themes_blurb: >
       What we work on, spanning the Departments of Engineering and Mathematical
