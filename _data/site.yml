@@ -69,6 +69,21 @@ copy:
   home:
     eyebrow: Durham University
     headline: The fluid mechanics of wind energy, from the blade to the atmospheric boundary layer.
+    # Figures live in Profile/Figures/. `alt` is required — describe what the
+    # image shows. `caption` appears beneath it; `credit` is the attribution.
+    hero_image: wake-velocity-field.jpg
+    hero_alt: >
+      Measured velocity field behind a model wind turbine in a wind tunnel,
+      with the wake showing as a dark low-speed band spreading downstream
+      through faster surrounding flow.
+    hero_caption: The wake of a model turbine, measured in the wind tunnel.
+    figure_image: wake-velocity-field.gif
+    figure_alt: >
+      Animated velocity field behind a model wind turbine, the turbulent wake
+      fluctuating as it spreads downstream.
+    figure_caption: >
+      The same measurement in motion — the wake is unsteady, and that
+      unsteadiness is what sets how quickly it recovers.
     themes_heading: Research themes
     themes_blurb: >
       What we work on, spanning the Departments of Engineering and Mathematical

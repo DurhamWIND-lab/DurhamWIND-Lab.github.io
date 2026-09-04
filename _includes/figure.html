@@ -1,0 +1,21 @@
+{%- comment -%}
+  A figure from Profile/Figures/.
+
+  Params: file, alt (required), caption, credit, class, eager
+  Most of these are white-background journal figures, so the frame always
+  paints a light ground — in dark mode they would otherwise glare, and
+  inverting them would falsify the data.
+{%- endcomment -%}
+{%- if include.file and include.alt -%}
+<figure class="fig {{ include.class }}">
+  <img src="{{ '/assets/img/figures/' | append: include.file | relative_url }}"
+       alt="{{ include.alt | strip_newlines | strip }}"
+       {% if include.eager %}loading="eager" fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %}>
+  {%- if include.caption or include.credit -%}
+  <figcaption>
+    {%- if include.caption %}{{ include.caption | strip_newlines | strip }}{% endif -%}
+    {%- if include.credit %}<span class="fig-credit">{{ include.credit }}</span>{% endif -%}
+  </figcaption>
+  {%- endif -%}
+</figure>
+{%- endif -%}

@@ -13,6 +13,10 @@ hide_header: true
     <h1>{{ c.headline }}</h1>
     <p class="lede">{{ data.intro | strip_newlines | strip }}</p>
 
+    {%- if c.hero_image -%}
+    {% include figure.html file=c.hero_image alt=c.hero_alt caption=c.hero_caption class="fig-hero" eager=true %}
+    {%- endif -%}
+
     <div class="cta-row">
       <a class="btn btn-primary" href="{{ '/research/' | relative_url }}">Our research</a>
       <a class="btn btn-ghost" href="{{ '/people/' | relative_url }}">Meet the group</a>
@@ -35,6 +39,11 @@ hide_header: true
       <h2>{{ c.themes_heading }}</h2>
       <p>{{ c.themes_blurb | strip_newlines | strip }}</p>
     </div>
+
+    {%- if c.figure_image -%}
+    {% include figure.html file=c.figure_image alt=c.figure_alt caption=c.figure_caption class="fig-wide" %}
+    {%- endif -%}
+
 
     <div class="card-grid">
       {%- for theme in site.data.projects -%}

@@ -61,9 +61,25 @@ jobs:
           for pub in pubs:
               if pub.get("theme") and pub["theme"] not in themes:
                   errors.append(f"{pub['title'][:40]!r}: unknown theme {pub['theme']!r}")
+          figs = pathlib.Path("assets/img/figures")
           for t in projects:
               if t["key"] not in themes:
                   errors.append(f"project {t['key']!r}: not a site theme")
+              img = t.get("image")
+              if img:
+                  if not (figs / img).exists():
+                      errors.append(f"project {t['key']}: missing figure {img}")
+                  # An image with no alt text is invisible to a screen reader.
+                  if not (t.get("image_alt") or "").strip():
+                      errors.append(f"project {t['key']}: image {img} has no image_alt")
+          home = ((site.get("copy") or {}).get("home") or {})
+          for img_key, alt_key in (("hero_image", "hero_alt"), ("figure_image", "figure_alt")):
+              img = home.get(img_key)
+              if img:
+                  if not (figs / img).exists():
+                      errors.append(f"home {img_key}: missing figure {img}")
+                  if not (home.get(alt_key) or "").strip():
+                      errors.append(f"home {img_key}: {img} has no {alt_key}")
 
           if errors:
               for e in errors:

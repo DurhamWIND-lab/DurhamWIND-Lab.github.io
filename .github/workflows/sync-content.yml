@@ -60,6 +60,16 @@ jobs:
           done
           ls -la _data
 
+      - name: Copy figures
+        run: |
+          set -euo pipefail
+          rm -rf assets/img/figures
+          mkdir -p assets/img/figures
+          if [ -d /tmp/content/Profile/Figures ]; then
+            find /tmp/content/Profile/Figures -maxdepth 1 -type f               \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png'                  -o -iname '*.gif' -o -iname '*.webp' -o -iname '*.svg' \)               -exec cp {} assets/img/figures/ \;
+          fi
+          ls -la assets/img/figures
+
       - name: Copy photos
         run: |
           set -euo pipefail
@@ -89,6 +99,17 @@ jobs:
           ]
           if missing:
               sys.exit(f"Photos referenced but not synced: {missing}")
+
+          figs = pathlib.Path("assets/img/figures")
+          projects = yaml.safe_load((data / "projects.yml").read_text(encoding="utf-8"))
+          wanted = [t["image"] for t in projects if t.get("image")]
+          for key in ("hero_image", "figure_image"):
+              got = ((site.get("copy") or {}).get("home") or {}).get(key)
+              if got:
+                  wanted.append(got)
+          gone = [f for f in wanted if not (figs / f).exists()]
+          if gone:
+              sys.exit(f"Figures referenced but not synced: {gone}")
           print(f"OK — {len(people)} people, {len(pubs)} publications.")
           PY
 
@@ -96,7 +117,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _data assets/img/people
+          git add _data assets/img/people assets/img/figures
           if git diff --cached --quiet; then
             echo "Site content is already up to date."
             exit 0

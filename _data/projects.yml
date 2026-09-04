@@ -17,6 +17,9 @@
     actually run inside an optimisation loop, without losing the physics that
     makes the answer right. Models developed here are implemented in FLORIS
     (NREL) and PyWake (DTU).
+  image: wake-structure.jpg
+  image_alt: >
+    Schematic of a wind turbine wake: tip and root vortices shed from the rotor, breaking down into a meandering turbulent wake downstream.
 
 - key: abl-gfd
   title: Atmospheric boundary layer & geophysical fluid dynamics
@@ -27,6 +30,10 @@
     and the tools of geophysical fluid dynamics, including wave–vortex
     interaction and Lagrangian averaging methods drawn from atmospheric and
     ocean dynamics.
+  image: farm-scales.jpg
+  image_alt: >
+    Three ways of modelling a wind farm: finite, using single wakes and superposition; infinite, as added surface roughness with top-down energy transport; and semi-infinite, with infinite width and finite length.
+  image_credit: Bastankhah et al., J. Fluid Mech. 985, A43 (2024), CC BY 4.0
 
 - key: experiments
   title: Wind tunnel experiments
@@ -35,6 +42,10 @@
     boundary-layer flows: miniature rotor design, wake structure and flow
     dynamics, and the scaling questions that decide whether a tunnel result
     says anything about a real farm.
+  image: energy-conversion.jpg
+  image_alt: >
+    Energy conversion through a miniature wind turbine, from mechanical shaft power through friction and electrical losses to electrical output.
+  image_credit: Bastankhah & Porté-Agel, Energies 10, 908 (2017), CC BY 4.0
 
 - key: control
   title: Wake steering & flow control
@@ -43,6 +54,9 @@
     the blade itself. Work spans analytical models of curled and skewed wakes
     behind yawed rotors, validation against operational wind farm campaigns,
     and smart rotors with actively actuated trailing-edge surfaces.
+  image: wake-steering.jpg
+  image_alt: >
+    Wake steering: yawing upstream turbines deflects their wakes away from those behind, trading a small loss at one turbine for a larger gain across the farm.
 
 - key: floating
   title: Floating offshore wind
@@ -51,6 +65,9 @@
     with them. We study how platform motion changes wake behaviour and what
     that means for wake steering, loads and economics in floating farms.
   partners: EDF R&D
+  image: offshore-farm.jpg
+  image_alt: >
+    A row of offshore wind turbines seen from the sea.
 
 - key: systems
   title: Energy systems, risk & deployment
@@ -59,3 +76,7 @@
     reserve scheduling that accounts for wake interactions, and AI-based risk
     identification and assessment for wind farm projects — the modelling that
     sits between a good rotor and a working grid asset.
+  image: flowers-aep.jpg
+  image_alt: >
+    Wind roses, turbine layouts and per-turbine energy yield errors for three sites, comparing Gaussian FLOWERS against conventional annual energy production estimates.
+  image_credit: Whittaker et al., J. Renew. Sustain. Energy 17, 013306 (2025), CC BY 4.0

@@ -16,6 +16,10 @@ copy_key: research
       </div>
       <p>{{ theme.summary | strip_newlines | strip }}</p>
 
+      {%- if theme.image -%}
+      {% include figure.html file=theme.image alt=theme.image_alt credit=theme.image_credit %}
+      {%- endif -%}
+
       {%- comment -%}
         Only emit the list when there is something in it; an empty <dl> is
         invalid and leaves a stray gap under the summary.
