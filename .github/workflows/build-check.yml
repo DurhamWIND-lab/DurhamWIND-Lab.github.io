@@ -110,6 +110,19 @@ jobs:
             grep -q "$name" _site/people/index.html \
               || { echo "::error::${name} missing from the built People page"; exit 1; }
           done
+
+          # The stylesheet must be CSS and nothing else. _config.yml applies
+          # layout: default to every path, so a stylesheet that loses its
+          # `layout: null` gets the whole HTML document prepended. It still
+          # serves as 200 text/css and the site still renders, so the only
+          # symptom is that the CSS parser eats the :root block as part of one
+          # invalid selector and every custom property silently disappears.
+          if head -c 400 _site/assets/css/main.css | grep -qi "<!DOCTYPE\|<html"; then
+            echo "::error::_site/assets/css/main.css has HTML prepended — is 'layout: null' still in its front matter?"
+            exit 1
+          fi
+          grep -q "^:root {" _site/assets/css/main.css \
+            || { echo "::error::_site/assets/css/main.css has no top-level :root block — the custom properties would all be dropped"; exit 1; }
           echo "Built pages:"
           find _site -name '*.html' | sort
 

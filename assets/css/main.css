@@ -1,5 +1,14 @@
 ---
 # Front matter so Jekyll passes this file through. Plain CSS below.
+#
+# `layout: null` overrides the site-wide `layout: default` that _config.yml
+# applies to every path, this stylesheet included. Without it Jekyll emits the
+# whole HTML document ahead of the CSS; the CSS parser then reads that markup
+# as the start of a selector and swallows the :root block that follows it —
+# taking every custom property with it. The page still renders, which is what
+# makes it easy to miss: every var() silently falls back, so the palette goes
+# black-on-white and .wrap loses its max-width and runs full-bleed.
+layout: null
 ---
 
 /* ==========================================================================
