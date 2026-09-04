@@ -313,7 +313,10 @@ section + section { border-top: 1px solid var(--line); }
 /* Most of these are journal figures drawn on white. In dark mode they would
    glare against the page, and inverting them would misrepresent the data, so
    the frame always paints its own light ground and gives the figure air. */
-.fig { margin: 1.75rem 0 0; }
+/* Left unconstrained a figure fills the 1225px content column, and a tall
+   multi-panel one then runs past a whole screen height. Cap the width so a
+   figure sits with the text rather than replacing it. */
+.fig { margin: 1.75rem 0 0; max-width: 720px; }
 .fig img {
   display: block; width: 100%; height: auto;
   background: #fff;
