@@ -119,6 +119,39 @@ copy:
       runs from the wake of a single rotor up to this farm-scale picture —
       blockage ahead of the farm, entrainment from above, and the waves the
       farm sets off on the inversion overhead.
+    # --- Collaboration ------------------------------------------------------
+    # Sits directly under the hero, ahead of the research themes, because it is
+    # the first thing the group wants a visitor to understand about how it
+    # works. Deliberately not a footnote: the previous version of this said the
+    # same thing in small grey type at the top of the Publications page, where
+    # it read as a disclaimer rather than as a belief.
+    #
+    # Keep it about what we learn from other people. It must not turn into a
+    # list of our own achievements with the word "collaborative" attached.
+    collab_heading: Working with other people
+    collab_statement: Almost none of this was done alone.
+    collab_text: >
+      The work on these pages is shared with colleagues at universities,
+      research institutes and companies around the world, and the group is a
+      great deal better for it. We learn an enormous amount from the people we
+      publish with — from those who measure what we can only model, who argue
+      us out of a bad assumption, or who show us that a result does not hold in
+      their data. Full credit for each paper belongs to all of its authors, and
+      the author lists on the Publications page are the real record of who did
+      the work. If you think about these problems too, we would be glad to hear
+      from you.
+    # Rendered as a list under the statement above, and hidden entirely while
+    # the list is empty — so it is safe to leave until it is ready.
+    #
+    # TODO(Majid): this is the one thing on the site that cannot be generated
+    # from the publication data. The papers carry co-author names but not their
+    # affiliations, so listing institutions here is the only way to show the
+    # spread — and it has to be written by someone who actually knows it.
+    # Order does not matter; the page prints them as given.
+    collab_institutions: []
+    collab_institutions_note: >
+      Institutions we have published or worked with.
+
     themes_heading: Research themes
     themes_blurb: >
       What we work on, spanning the Departments of Engineering and Mathematical
@@ -142,9 +175,11 @@ copy:
       systems that get wind capacity built and delivered. What holds it
       together is a preference for models that are simple enough to reason
       about and fast enough to use — grounded in the physics, but built for the
-      problems industry actually faces. Models developed here are implemented
-      in <a href="https://github.com/NREL/floris">FLORIS</a> (NREL) and
-      <a href="https://github.com/DTUWindEnergy/PyWake">PyWake</a> (DTU).
+      problems industry actually faces. Much of it is done jointly with groups
+      elsewhere, and some of the models we have had a hand in are carried in
+      community tools such as <a href="https://github.com/NREL/floris">FLORIS</a>
+      and <a href="https://github.com/DTUWindEnergy/PyWake">PyWake</a>, built
+      and maintained by the teams at NREL and DTU.
     code_heading: Code & data
     code_text: >
       We publish the code behind our papers where we can. Repositories live in
@@ -173,9 +208,21 @@ copy:
       Peer-reviewed journal articles by group members on wind energy and the
       atmospheric flows wind farms sit in.
     description: >
-      Publications from DurhamWIND at Durham University — wake modelling,
-      atmospheric boundary layer flows, wake steering, floating offshore wind
-      and energy systems.
+      Publications from DurhamWIND at Durham University — wind farm
+      aerodynamics, wake steering, floating offshore wind and energy systems.
+    # Shown as a callout at the top of the page, not as grey small print. It
+    # says the same thing as copy.home.collab_* in the register this page
+    # needs; the two are kept separate so each can be edited on its own.
+    credit_heading: A note on credit
+    credit_text: >
+      Almost none of this was done alone. Every paper here is shared with
+      colleagues at universities, research institutes and companies around the
+      world, and we have learned an enormous amount from them. Full credit for
+      each paper belongs to all of its authors — please see each publication
+      record for the complete author list and affiliations.
+    credit_bold_note: >
+      Group members' names are shown in bold, purely so you can see who here
+      was involved.
 
   contact:
     title: Enquiries & join us

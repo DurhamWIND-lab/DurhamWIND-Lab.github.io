@@ -24,8 +24,10 @@
     boundary layer it sits in. We work on all of it with whichever tool the
     question calls for: reduced-order models fast enough to run inside an
     optimisation loop, high-fidelity simulation, and laboratory experiment in
-    the wind tunnel. Models developed here are implemented in FLORIS (NREL)
-    and PyWake (DTU).
+    the wind tunnel. Nearly all of it is joint work with groups elsewhere, and
+    some of the models we have had a hand in are carried in community tools
+    such as FLORIS and PyWake, built and maintained by the teams at NREL and
+    DTU.
   feature: true
   image: farm-scales.jpg
   image_alt: >

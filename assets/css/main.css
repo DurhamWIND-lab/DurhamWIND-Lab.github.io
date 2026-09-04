@@ -222,6 +222,37 @@ section + section { border-top: 1px solid var(--line); }
 .strand h3 { font-size: 1rem; margin-bottom: .35rem; }
 .strand p { color: var(--ink-soft); font-size: .93rem; margin: 0; }
 
+/* --- collaboration -------------------------------------------------------- */
+
+/* Statement left, substance right — the two-column split gives the short line
+   room to carry weight instead of reading as a stray sentence. Single column
+   below 860px, where two columns would leave both too narrow. */
+.collab { display: grid; gap: 1.25rem 3rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) {
+  .collab { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: start; }
+}
+.collab h2 { margin-bottom: .6rem; }
+.collab-statement {
+  font-size: clamp(1.3rem, 1.05rem + 1.1vw, 1.85rem);
+  font-weight: 650; line-height: 1.25; letter-spacing: -0.015em;
+  color: var(--purple); max-width: 22ch; margin: 0;
+}
+.collab-body > p { font-size: 1.02rem; color: var(--ink-soft); max-width: 68ch; }
+.collab-body > p:last-child { margin-bottom: 0; }
+
+/* Qualified with .collab-body so it outranks `.collab-body > p` above, which
+   would otherwise win on specificity and reset the size. */
+.collab-body > .collab-note { font-size: .82rem; color: var(--ink-faint); margin-bottom: .5rem; }
+.collab-institutions {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  list-style: none; margin: 0; padding: 0;
+}
+.collab-institutions li {
+  font-size: .86rem; color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 100px;
+  padding: .25rem .7rem; background: var(--bg);
+}
+
 /* --- cards ---------------------------------------------------------------- */
 
 .card-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }

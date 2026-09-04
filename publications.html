@@ -9,12 +9,18 @@ copy_key: publications
 
 <section>
   <div class="wrap">
-    <p class="muted">
-      Most of this work is collaborative. Full credit goes to all co-authors — please see each
-      publication record for the complete author list and affiliations. Group members' names are
-      shown in bold. Individual investigators' complete records, including work outside wind
-      energy, are linked from the <a href="{{ '/people/' | relative_url }}">People</a> page.
-    </p>
+    {%- comment -%}
+      A callout rather than a grey paragraph. This is the group's position on
+      credit, not fine print, and it was previously easy to skim past.
+    {%- endcomment -%}
+    {%- assign cp = site.data.site.copy.publications -%}
+    <div class="callout">
+      <h3>{{ cp.credit_heading }}</h3>
+      <p>{{ cp.credit_text | strip_newlines | strip }}</p>
+      <p class="muted small">{{ cp.credit_bold_note | strip_newlines | strip }} Individual
+         investigators' complete records, including work outside wind energy, are linked from
+         the <a href="{{ '/people/' | relative_url }}">People</a> page.</p>
+    </div>
 
     {%- for year in years -%}
     {%- assign in_year = pubs | where: "year", year -%}
