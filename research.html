@@ -24,6 +24,11 @@ description: Research themes at DurhamWIND — wake models, atmospheric boundary
       </div>
       <p>{{ theme.summary | strip_newlines | strip }}</p>
 
+      {%- comment -%}
+        Only emit the list when there is something in it; an empty <dl> is
+        invalid and leaves a stray gap under the summary.
+      {%- endcomment -%}
+      {%- if theme.partners or theme.funders -%}
       <dl class="theme-meta">
         {%- if theme.partners -%}
         <div><dt>Partners</dt><dd>{{ theme.partners }}</dd></div>
@@ -33,6 +38,7 @@ description: Research themes at DurhamWIND — wake models, atmospheric boundary
         <div><dt>Funding</dt><dd>{{ theme.funders }}</dd></div>
         {%- endif -%}
       </dl>
+      {%- endif -%}
     </div>
     {%- endfor -%}
   </div>
