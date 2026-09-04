@@ -111,8 +111,8 @@ openings:
       A postdoctoral position on the group's atmospheric flow and wind energy
       research, bridging the Departments of Engineering and Mathematical
       Sciences.
-    # TODO(Majid): add the official Durham advert URL and the closing date.
-    url: ""
+    url: https://durham.taleo.net/careersection/du_ext/jobdetail.ftl?job=26000968&lang=en&src=JB10200
+    # TODO(Majid): add the closing date from the advert, e.g. "12 October 2026".
     closing_date: ""
 
 # --- Publication themes -----------------------------------------------------

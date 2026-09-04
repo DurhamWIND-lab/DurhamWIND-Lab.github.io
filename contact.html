@@ -62,9 +62,6 @@ description: Enquiries, collaboration and current openings for postdoctoral rese
       <div class="card">
         <h3>{{ post.title }}</h3>
         <p>{{ post.summary | strip_newlines | strip }}</p>
-        <p class="muted small" style="margin-top:.75rem">
-          Led by {{ post.lead }}{% if post.co_investigators %}, with {{ post.co_investigators | join: " and " }} as co-investigator{% if post.co_investigators.size != 1 %}s{% endif %}{% endif %}.
-        </p>
         {%- if post.closing_date and post.closing_date != "" -%}
         <p class="muted small">Closing date: {{ post.closing_date }}</p>
         {%- endif -%}
@@ -72,8 +69,8 @@ description: Enquiries, collaboration and current openings for postdoctoral rese
         <a class="card-link" href="{{ post.url }}">Details and application →</a>
         {%- else -%}
         {%- comment -%}
-          No advert URL yet, so point enquirers at the people who are running the post
-          rather than at a group address.
+          No advert URL yet, so point enquirers at the person running the post rather
+          than at a group address. Not rendered as an attribution line.
         {%- endcomment -%}
         {%- assign lead_person = site.data.people | where: "name", post.lead | first -%}
         {%- if lead_person and lead_person.email -%}

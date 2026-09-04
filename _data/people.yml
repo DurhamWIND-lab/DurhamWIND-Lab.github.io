@@ -129,6 +129,7 @@
   role: phd
   department: Department of Engineering
   photo: Jordan.jpg
+  email: jordan.p.fuentes-holden@durham.ac.uk
   expertise:
     - flow-control
     - aerodynamics
@@ -194,6 +195,7 @@
   title: PhD Student
   role: phd
   department: Department of Engineering
+  email: ernesto.a.chimal-garcia@durham.ac.uk
   expertise:
     - geophysical-fluid-dynamics
     - applied-mathematics
@@ -207,6 +209,7 @@
   title: PhD Student
   role: phd
   department: Department of Engineering
+  email: joshua.prowse@durham.ac.uk
   expertise:
     - aerodynamics
   supervisors:
