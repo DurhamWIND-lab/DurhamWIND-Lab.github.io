@@ -24,8 +24,11 @@ intro: >
   and applied mathematics, and artificial intelligence for infrastructure and
   risk, across the Departments of Engineering and Mathematical Sciences.
 
+# No group-wide contact address, by design: the group is collaborative, and a
+# single mailto reads as though one person fronts it. Enquiries go to whichever
+# member's work is closest to the enquiry — their emails live on their entry in
+# people.yml and are rendered on the People page.
 contact:
-  email: majid.bastankhah@durham.ac.uk
   address_lines:
     - Department of Engineering
     - Durham University

@@ -285,6 +285,12 @@ section + section { border-top: 1px solid var(--line); }
 .callout p:last-child { margin-bottom: 0; }
 
 .contact-grid { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+/* The "who to write to" column carries three investigators, so give it room to
+   sit two-up beside the address rather than being squeezed into one narrow column. */
+.contact-wide { grid-column: span 2; }
+.contact-people { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 1.25rem 0; }
+.contact-people p { margin: 0; }
+@media (max-width: 700px) { .contact-wide { grid-column: auto; } }
 
 /* --- footer --------------------------------------------------------------- */
 

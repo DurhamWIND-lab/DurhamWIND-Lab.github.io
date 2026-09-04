@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Contact & join us
+title: Enquiries & join us
 permalink: /contact/
 lede: We welcome collaboration, and enquiries from prospective students and researchers.
-description: Contact DurhamWIND at Durham University, and current openings for postdoctoral researchers and PhD students in wind energy and atmospheric flow.
+description: Enquiries, collaboration and current openings for postdoctoral researchers and PhD students at DurhamWIND, Durham University.
 ---
 
 {%- assign data = site.data.site -%}
@@ -19,26 +19,31 @@ description: Contact DurhamWIND at Durham University, and current openings for p
       </p>
       <p><a href="https://www.durham.ac.uk/departments/academic/engineering/">Department of Engineering →</a><br>
          <a href="https://www.durham.ac.uk/departments/academic/mathematical-sciences/">Department of Mathematical Sciences →</a></p>
+      <p><a href="{{ site.github_org }}">Code and data on GitHub →</a></p>
     </div>
 
-    <div>
-      <h2>Get in touch</h2>
-      <p>General enquiries and collaboration:<br>
-         <a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a></p>
-      <p>Code, data and issues:<br>
-         <a href="{{ site.github_org }}">{{ site.github_org | remove: "https://" }}</a></p>
-    </div>
-
-    <div>
-      <h2>Investigators</h2>
-      {%- assign investigators = site.data.people | where: "role", "investigator" -%}
-      {%- for person in investigators -%}
-      <p style="margin-bottom:.6rem">
-        <a href="{{ '/people/' | relative_url }}#{{ person.id }}">{{ person.name }}</a><br>
-        <span class="muted small">{{ person.department }}</span>
-        {%- if person.email %}<br><a class="small" href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif -%}
-      </p>
-      {%- endfor -%}
+    <div class="contact-wide">
+      <h2>Who to write to</h2>
+      <p>We do not run a central inbox. Write to whichever of us works closest to what
+         interests you — nobody will mind an email that turns out to be better answered
+         by a colleague, and we will pass it on.</p>
+      <div class="contact-people">
+        {%- assign investigators = site.data.people | where: "role", "investigator" -%}
+        {%- for person in investigators -%}
+        <p>
+          <a href="{{ '/people/' | relative_url }}#{{ person.id }}"><strong>{{ person.name }}</strong></a><br>
+          <span class="muted small">{{ person.department }}</span>
+          {%- if person.expertise %}<br><span class="muted small">
+            {%- for tag in person.expertise limit: 3 -%}
+            {{ data.expertise[tag] }}{% unless forloop.last %} · {% endunless %}
+            {%- endfor -%}
+          </span>{% endif -%}
+          {%- if person.email %}<br><a class="small" href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif -%}
+        </p>
+        {%- endfor -%}
+      </div>
+      <p class="muted small">Everyone in the group, including PhD students, is listed on the
+         <a href="{{ '/people/' | relative_url }}">People page</a>.</p>
     </div>
   </div>
 </section>
@@ -66,7 +71,16 @@ description: Contact DurhamWIND at Durham University, and current openings for p
         {%- if post.url and post.url != "" -%}
         <a class="card-link" href="{{ post.url }}">Details and application →</a>
         {%- else -%}
-        <a class="card-link" href="mailto:{{ data.contact.email }}">Enquire by email →</a>
+        {%- comment -%}
+          No advert URL yet, so point enquirers at the people who are running the post
+          rather than at a group address.
+        {%- endcomment -%}
+        {%- assign lead_person = site.data.people | where: "name", post.lead | first -%}
+        {%- if lead_person and lead_person.email -%}
+        <a class="card-link" href="mailto:{{ lead_person.email }}">Enquire with {{ lead_person.name }} →</a>
+        {%- else -%}
+        <a class="card-link" href="{{ '/people/' | relative_url }}">Enquire with the named investigators →</a>
+        {%- endif -%}
         {%- endif -%}
       </div>
       {%- endfor -%}
@@ -80,8 +94,8 @@ description: Contact DurhamWIND at Durham University, and current openings for p
       <p>We are always glad to hear from strong candidates interested in wind energy, atmospheric
          turbulence and environmental fluid mechanics — including those bringing a background in
          applied mathematics, machine learning or data science rather than classical fluid
-         dynamics. Email a CV and a short note on what interests you to
-         <a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a>.</p>
+         dynamics. Send a CV and a short note on what interests you to whichever investigator's
+         work is closest to your own; their addresses are just above.</p>
     </div>
   </div>
 </section>
