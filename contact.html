@@ -40,7 +40,21 @@ copy_key: contact
   </div>
 </section>
 
-{%- assign open_posts = data.openings | where: "open", true -%}
+{%- comment -%}
+  Only posts still open are listed: `open: true` and either no closing_date or
+  one that has not passed. Expiry is decided at build time, so a post can
+  outlast its date in a quiet spell — which is why the date is printed on the
+  card. A reader can see for themselves that it has closed, so a late listing
+  is stale rather than misleading.
+{%- endcomment -%}
+{%- assign today = 'now' | date: '%Y-%m-%d' -%}
+{%- assign live_count = 0 -%}
+{%- for post in data.openings -%}
+  {%- if post.open -%}
+  {%- assign closes = post.closing_date | date: '%Y-%m-%d' -%}
+  {%- if closes == '' or closes >= today -%}{%- assign live_count = live_count | plus: 1 -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
 <section class="section-tint">
   <div class="wrap">
     <div class="section-head">
@@ -48,14 +62,17 @@ copy_key: contact
       <p>{{ c.openings_blurb }}</p>
     </div>
 
-    {%- if open_posts.size > 0 -%}
+    {%- if live_count > 0 -%}
     <div class="card-grid">
-      {%- for post in open_posts -%}
+      {%- for post in data.openings -%}
+      {%- unless post.open -%}{%- continue -%}{%- endunless -%}
+      {%- assign closes = post.closing_date | date: '%Y-%m-%d' -%}
+      {%- unless closes == '' or closes >= today -%}{%- continue -%}{%- endunless -%}
       <div class="card">
-        <h3>{{ post.title }}</h3>
+        <h3>{{ post.title | strip_newlines | strip }}</h3>
         <p>{{ post.summary | strip_newlines | strip }}</p>
-        {%- if post.closing_date and post.closing_date != "" -%}
-        <p class="muted small">Closing date: {{ post.closing_date }}</p>
+        {%- if closes != '' -%}
+        <p class="muted small">Closing date: {{ closes | date: "%-d %B %Y" }}</p>
         {%- endif -%}
         {%- if post.url and post.url != "" -%}
         <a class="card-link" href="{{ post.url }}">Details and application →</a>

@@ -226,18 +226,33 @@ group_surnames:
 # --- Open positions ---------------------------------------------------------
 # Shown on the Contact & Join us page. Delete the entry (or set `open: false`)
 # once a post closes and it disappears from the site.
+#
+# `closing_date` must be ISO in quotes — "YYYY-MM-DD" — and it is the reason you
+# should not have to come back here. Once the date is past, the post stops
+# being listed and the "We're hiring" line disappears from the home page on
+# its own. Write the date when you post the advert and then forget it; there
+# is no `open: false` to remember later.
+#
+# Leaving `closing_date` empty means "no end date", which is a listing that
+# runs until someone removes it by hand. Prefer a date.
+#
+# Expiry is worked out when the site builds, and the site builds when content
+# changes — so a post can outlive its date by a few days in a quiet spell.
+# That is why the closing date is printed on the Join us page: a reader can
+# always see for themselves whether it has passed.
 openings:
   - open: true
-    title: Postdoctoral Research Associate
+    title: >
+      Postdoctoral Research Associate — Atmospheric and inter-farm aerodynamics
+      of multi-gigawatt wind farms
     lead: Majid Bastankhah
     co_investigators:
       - Hossein Amini Kafiabad
     summary: >
       A postdoctoral position on the group's multidisciplinary research into
-      atmospheric flow and wind energy.
+      atmospheric flow and wind energy. Grade 7, fixed term to 31 July 2030.
     url: https://durham.taleo.net/careersection/du_ext/jobdetail.ftl?job=26000968&lang=en&src=JB10200
-    # TODO(Majid): add the closing date from the advert, e.g. "12 October 2026".
-    closing_date: ""
+    closing_date: "2026-09-20"
 
 # --- Publication themes -----------------------------------------------------
 # Used to tag entries in publications.yml and to group the Research page.

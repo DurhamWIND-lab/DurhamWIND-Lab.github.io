@@ -103,15 +103,36 @@ hide_header: true
   </div>
 </section>
 
-{%- assign open_posts = site.data.site.openings | where: "open", true -%}
-{%- if open_posts.size > 0 -%}
+{%- comment -%}
+  "We're hiring" has to be able to stop being true without anyone editing this
+  site. A post drops off once its closing_date is past, so the only thing that
+  has to be right is the date in site.yml, written once when the advert goes
+  up. `| date:` normalises the value first, so it works whether the YAML gave
+  us a quoted string or an unquoted date; an empty closing_date normalises to
+  "" and means no end date.
+
+  Titles are collected into a string because Liquid cannot build a list of
+  objects across loop iterations.
+{%- endcomment -%}
+{%- assign today = 'now' | date: '%Y-%m-%d' -%}
+{%- assign live_titles = '' -%}
+{%- for post in site.data.site.openings -%}
+  {%- if post.open -%}
+  {%- assign closes = post.closing_date | date: '%Y-%m-%d' -%}
+  {%- if closes == '' or closes >= today -%}
+  {%- assign live_titles = live_titles | append: post.title | strip_newlines | strip | append: '§' -%}
+  {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign live = live_titles | split: '§' -%}
+{%- if live.size > 0 -%}
 <section>
   <div class="wrap">
     <div class="callout">
       <h3>{{ c.hiring_heading }}</h3>
       <p>
-        {%- for post in open_posts -%}
-        {{ post.title }}{% unless forloop.last %}, {% endunless %}
+        {%- for title in live -%}
+        {{ title }}{% unless forloop.last %}, {% endunless %}
         {%- endfor -%}
         — see <a href="{{ '/contact/' | relative_url }}">Join us</a> for details.
       </p>
