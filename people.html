@@ -1,11 +1,10 @@
 ---
 layout: default
-title: People
 permalink: /people/
-lede: An interdisciplinary group spanning engineering and mathematics, from rotor aerodynamics to geophysical fluid dynamics to AI for energy infrastructure.
-description: The people of DurhamWIND — investigators, postdoctoral researchers and PhD students at Durham University working on wind energy and atmospheric flow.
+copy_key: people
 ---
 
+{%- assign c = site.data.site.copy.people -%}
 {%- assign people = site.data.people -%}
 
 <section>
@@ -34,11 +33,9 @@ description: The people of DurhamWIND — investigators, postdoctoral researcher
 <section class="section-tint">
   <div class="wrap">
     <div class="callout">
-      <h3>Joining us</h3>
-      <p>We welcome enquiries from prospective PhD students, postdoctoral researchers and
-         collaborators. Write to whichever of us works closest to what interests you — the
-         addresses are on the cards above — or see
-         <a href="{{ '/contact/' | relative_url }}">Enquiries &amp; join us</a> for current openings.</p>
+      <h3>{{ c.joining_heading }}</h3>
+      <p>{{ c.joining_text | strip_newlines | strip }}
+         See <a href="{{ '/contact/' | relative_url }}">{{ site.data.site.copy.contact.title }}</a> for current openings.</p>
     </div>
   </div>
 </section>

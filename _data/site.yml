@@ -59,6 +59,115 @@ roles:
     label: Alumni
     blurb: ""
 
+# --- Website copy -----------------------------------------------------------
+# Every sentence the website says in its own voice. It lives here so that all
+# editable prose is in this one file, rather than half of it being buried in
+# page templates in the website repository.
+#
+# `lede` is the line under each page's title. `intro` blocks may contain HTML
+# links. Headings and blurbs belong to a section of a page.
+copy:
+  home:
+    eyebrow: Durham University
+    headline: The fluid mechanics of wind energy, from the blade to the boundary layer.
+    themes_heading: Research themes
+    themes_blurb: >
+      What we work on, spanning the Departments of Engineering and Mathematical
+      Sciences.
+    code_heading: Open code
+    code_blurb: We publish the code and data behind our papers wherever we can.
+    code_fallback_heading: Everything else
+    code_fallback_text: All of the group's public repositories live in one GitHub organisation.
+    hiring_heading: We're hiring
+    # The three lines under the headline. Add or remove freely — the layout
+    # adapts, and no number is quoted anywhere.
+    strands:
+      - heading: Aerodynamics & experiment
+        text: >
+          Analytical wake models and wind tunnel measurements of how turbines
+          interact with turbulent flow.
+      - heading: Geophysical fluid dynamics
+        text: >
+          The atmosphere a wind farm sits in, and how a farm large enough to
+          change it changes it back.
+      - heading: AI, systems & deployment
+        text: >
+          Scheduling, risk and resilience — the modelling between a good rotor
+          and a working grid asset.
+
+  research:
+    title: Research
+    lede: >
+      One problem — understanding and improving how wind farms take energy out
+      of the atmosphere.
+    description: >
+      Research themes at DurhamWIND — wake models, atmospheric boundary layer
+      and geophysical fluid dynamics, wind tunnel experiments, wake steering
+      and flow control, floating offshore wind, and energy systems and risk.
+    intro: >
+      Our work runs from the aerodynamics of a single rotor through to the
+      systems that get wind capacity built and delivered. What holds it
+      together is a preference for models that are simple enough to reason
+      about and fast enough to use — grounded in the physics, but built for the
+      problems industry actually faces. Models developed here are implemented
+      in <a href="https://github.com/NREL/floris">FLORIS</a> (NREL) and
+      <a href="https://github.com/DTUWindEnergy/PyWake">PyWake</a> (DTU).
+    code_heading: Code & data
+    code_text: >
+      We publish the code behind our papers where we can. Repositories live in
+      the <a href="https://github.com/DurhamWIND-lab">DurhamWIND GitHub
+      organisation</a>.
+
+  people:
+    title: People
+    lede: >
+      An interdisciplinary group spanning engineering and mathematics, from
+      rotor aerodynamics to geophysical fluid dynamics to AI for energy
+      infrastructure.
+    description: >
+      The people of DurhamWIND — investigators, postdoctoral researchers and
+      PhD students at Durham University working on wind energy and atmospheric
+      flow.
+    joining_heading: Joining us
+    joining_text: >
+      We welcome enquiries from prospective PhD students, postdoctoral
+      researchers and collaborators. Write to whichever of us works closest to
+      what interests you — the addresses are on the cards above.
+
+  publications:
+    title: Publications
+    lede: >
+      Peer-reviewed journal articles by group members on wind energy and the
+      atmospheric flows wind farms sit in.
+    description: >
+      Publications from DurhamWIND at Durham University — wake modelling,
+      atmospheric boundary layer flows, wake steering, floating offshore wind
+      and energy systems.
+
+  contact:
+    title: Enquiries & join us
+    lede: We welcome collaboration, and enquiries from prospective students and researchers.
+    description: >
+      Enquiries, collaboration and current openings for postdoctoral
+      researchers and PhD students at DurhamWIND, Durham University.
+    find_us_heading: Where to find us
+    who_heading: Who to write to
+    who_text: >
+      We do not run a central inbox. Write to whichever of us works closest to
+      what interests you — nobody will mind an email that turns out to be
+      better answered by a colleague, and we will pass it on.
+    openings_heading: Openings
+    openings_blurb: Current advertised positions in the group.
+    openings_none: No advertised positions at the moment.
+    phd_heading: Prospective PhD students
+    phd_text: >
+      We are always glad to hear from strong candidates interested in wind
+      energy, atmospheric turbulence and environmental fluid mechanics —
+      including those bringing a background in applied mathematics, machine
+      learning or data science rather than classical fluid dynamics. Send a CV
+      and a short note on what interests you to whichever investigator's work
+      is closest to your own; their addresses are just above.
+
 # --- Author bolding ---------------------------------------------------------
 # Surnames bolded automatically in author lists on the Publications page, so
 # group members stand out. Add new members' surnames here.

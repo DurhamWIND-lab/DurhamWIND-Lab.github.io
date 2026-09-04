@@ -1,17 +1,16 @@
 ---
 layout: default
-title: Enquiries & join us
 permalink: /contact/
-lede: We welcome collaboration, and enquiries from prospective students and researchers.
-description: Enquiries, collaboration and current openings for postdoctoral researchers and PhD students at DurhamWIND, Durham University.
+copy_key: contact
 ---
 
 {%- assign data = site.data.site -%}
+{%- assign c = data.copy.contact -%}
 
 <section>
   <div class="wrap contact-grid">
     <div>
-      <h2>Where to find us</h2>
+      <h2>{{ c.find_us_heading }}</h2>
       <p class="muted">
         {%- for line in data.contact.address_lines -%}
         {{ line }}{% unless forloop.last %}<br>{% endunless %}
@@ -23,10 +22,8 @@ description: Enquiries, collaboration and current openings for postdoctoral rese
     </div>
 
     <div class="contact-wide">
-      <h2>Who to write to</h2>
-      <p>We do not run a central inbox. Write to whichever of us works closest to what
-         interests you — nobody will mind an email that turns out to be better answered
-         by a colleague, and we will pass it on.</p>
+      <h2>{{ c.who_heading }}</h2>
+      <p>{{ c.who_text | strip_newlines | strip }}</p>
       <div class="contact-people">
         {%- assign investigators = site.data.people | where: "role", "investigator" -%}
         {%- for person in investigators -%}
@@ -47,8 +44,8 @@ description: Enquiries, collaboration and current openings for postdoctoral rese
 <section class="section-tint">
   <div class="wrap">
     <div class="section-head">
-      <h2>Openings</h2>
-      <p>Current advertised positions in the group.</p>
+      <h2>{{ c.openings_heading }}</h2>
+      <p>{{ c.openings_blurb }}</p>
     </div>
 
     {%- if open_posts.size > 0 -%}
@@ -78,16 +75,12 @@ description: Enquiries, collaboration and current openings for postdoctoral rese
       {%- endfor -%}
     </div>
     {%- else -%}
-    <p class="muted">No advertised positions at the moment.</p>
+    <p class="muted">{{ c.openings_none }}</p>
     {%- endif -%}
 
     <div class="callout" style="margin-top:2rem">
-      <h3>Prospective PhD students</h3>
-      <p>We are always glad to hear from strong candidates interested in wind energy, atmospheric
-         turbulence and environmental fluid mechanics — including those bringing a background in
-         applied mathematics, machine learning or data science rather than classical fluid
-         dynamics. Send a CV and a short note on what interests you to whichever investigator's
-         work is closest to your own; their addresses are just above.</p>
+      <h3>{{ c.phd_heading }}</h3>
+      <p>{{ c.phd_text | strip_newlines | strip }}</p>
     </div>
   </div>
 </section>

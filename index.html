@@ -1,15 +1,16 @@
 ---
 layout: default
 hide_header: true
-title: null
 ---
+
+{%- assign c = site.data.site.copy.home -%}
 
 {%- assign data = site.data.site -%}
 
 <div class="hero">
   <div class="wrap">
-    <span class="eyebrow">Durham University</span>
-    <h1>The fluid mechanics of wind energy, from the blade to the boundary layer.</h1>
+    <span class="eyebrow">{{ c.eyebrow }}</span>
+    <h1>{{ c.headline }}</h1>
     <p class="lede">{{ data.intro | strip_newlines | strip }}</p>
 
     <div class="cta-row">
@@ -18,18 +19,12 @@ title: null
     </div>
 
     <div class="strands">
+      {%- for strand in c.strands -%}
       <div class="strand">
-        <h3>Aerodynamics &amp; experiment</h3>
-        <p>Analytical wake models and wind tunnel measurements of how turbines interact with turbulent flow.</p>
+        <h3>{{ strand.heading }}</h3>
+        <p>{{ strand.text | strip_newlines | strip }}</p>
       </div>
-      <div class="strand">
-        <h3>Geophysical fluid dynamics</h3>
-        <p>The atmosphere a wind farm sits in, and how a farm large enough to change it changes it back.</p>
-      </div>
-      <div class="strand">
-        <h3>AI, systems &amp; deployment</h3>
-        <p>Scheduling, risk and resilience — the modelling between a good rotor and a working grid asset.</p>
-      </div>
+      {%- endfor -%}
     </div>
   </div>
 </div>
@@ -37,8 +32,8 @@ title: null
 <section>
   <div class="wrap">
     <div class="section-head">
-      <h2>Research themes</h2>
-      <p>Six strands, spanning the Departments of Engineering and Mathematical Sciences.</p>
+      <h2>{{ c.themes_heading }}</h2>
+      <p>{{ c.themes_blurb | strip_newlines | strip }}</p>
     </div>
 
     <div class="card-grid">
@@ -56,8 +51,8 @@ title: null
 <section class="section-tint">
   <div class="wrap">
     <div class="section-head">
-      <h2>Open code</h2>
-      <p>We publish the code and data behind our papers wherever we can.</p>
+      <h2>{{ c.code_heading }}</h2>
+      <p>{{ c.code_blurb }}</p>
     </div>
 
     <div class="card-grid">
@@ -70,8 +65,8 @@ title: null
       </div>
       {%- endfor -%}
       <div class="card">
-        <h3>Everything else</h3>
-        <p>All of the group's public repositories live in one GitHub organisation.</p>
+        <h3>{{ c.code_fallback_heading }}</h3>
+        <p>{{ c.code_fallback_text }}</p>
         <a class="card-link" href="{{ site.github_org }}">Browse the organisation →</a>
       </div>
     </div>
@@ -83,7 +78,7 @@ title: null
 <section>
   <div class="wrap">
     <div class="callout">
-      <h3>We're hiring</h3>
+      <h3>{{ c.hiring_heading }}</h3>
       <p>
         {%- for post in open_posts -%}
         {{ post.title }}{% unless forloop.last %}, {% endunless %}

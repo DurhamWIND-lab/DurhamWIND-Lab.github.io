@@ -1,21 +1,13 @@
 ---
 layout: default
-title: Research
 permalink: /research/
-lede: Six strands, one problem — understanding and improving how wind farms take energy out of the atmosphere.
-description: Research themes at DurhamWIND — wake models, atmospheric boundary layer and geophysical fluid dynamics, wind tunnel experiments, wake steering and flow control, floating offshore wind, and energy systems and risk.
+copy_key: research
 ---
 
+{%- assign c = site.data.site.copy.research -%}
 <section>
   <div class="wrap">
-    <p class="muted" style="max-width:68ch">
-      Our work runs from the aerodynamics of a single rotor through to the systems that get wind
-      capacity built and delivered. What holds it together is a preference for models that are
-      simple enough to reason about and fast enough to use — grounded in the physics, but built
-      for the problems industry actually faces. Models developed here are implemented in
-      <a href="https://github.com/NREL/floris">FLORIS</a> (NREL) and
-      <a href="https://github.com/DTUWindEnergy/PyWake">PyWake</a> (DTU).
-    </p>
+    <p class="muted" style="max-width:68ch">{{ c.intro | strip_newlines | strip }}</p>
 
     {%- for theme in site.data.projects -%}
     <div class="theme" id="{{ theme.key }}">
@@ -47,9 +39,8 @@ description: Research themes at DurhamWIND — wake models, atmospheric boundary
 <section class="section-tint">
   <div class="wrap">
     <div class="callout">
-      <h3>Code &amp; data</h3>
-      <p>We publish the code behind our papers where we can. Repositories live in the
-        <a href="{{ site.github_org }}">DurhamWIND GitHub organisation</a>.</p>
+      <h3>{{ c.code_heading }}</h3>
+      <p>{{ c.code_text | strip_newlines | strip }}</p>
     </div>
   </div>
 </section>
