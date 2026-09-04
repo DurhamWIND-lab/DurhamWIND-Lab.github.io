@@ -1,9 +1,14 @@
 # Pulls people, publications, research themes and photos from the group's
 # content repository (DurhamWIND-lab/.github) into this site.
 #
-# That repository is public, so this needs NO tokens and NO secrets. It runs
-# hourly, and can be triggered immediately from the Actions tab with
+# That repository is public, so this needs NO tokens and NO secrets. It polls
+# every 10 minutes, and can be triggered immediately from the Actions tab with
 # "Run workflow" whenever you want a change live straight away.
+#
+# GitHub does not guarantee scheduled runs fire on time — under load they are
+# delayed and occasionally skipped — so treat 10 minutes as typical, not a
+# promise. "Run workflow" is the guaranteed-fast path. Runs that find nothing
+# changed exit without committing, so a short interval costs almost nothing.
 #
 # Nothing here should ever be edited by hand — _data/ and assets/img/people/
 # are overwritten on every run.
@@ -12,7 +17,7 @@ name: Sync content from .github
 
 on:
   schedule:
-    - cron: "17 * * * *"      # hourly, at :17
+    - cron: "*/10 * * * *"    # every 10 minutes
   workflow_dispatch:
   push:
     branches: [main]

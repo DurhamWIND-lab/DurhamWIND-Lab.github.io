@@ -56,24 +56,6 @@ title: null
 <section class="section-tint">
   <div class="wrap">
     <div class="section-head">
-      <h2>Selected publications</h2>
-      <p>A few papers that shaped the group's direction. The
-        <a href="{{ '/publications/' | relative_url }}">full list</a> runs to
-        {{ site.data.publications | size }} journal articles.</p>
-    </div>
-
-    {%- assign featured = site.data.publications | where: "featured", true | sort: "year" | reverse -%}
-    <ul class="pub-list">
-      {%- for pub in featured limit: 6 -%}
-      {% include pub-item.html pub=pub show_year=true %}
-      {%- endfor -%}
-    </ul>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
       <h2>Open code</h2>
       <p>We publish the code and data behind our papers wherever we can.</p>
     </div>
@@ -98,7 +80,7 @@ title: null
 
 {%- assign open_posts = site.data.site.openings | where: "open", true -%}
 {%- if open_posts.size > 0 -%}
-<section class="section-tint">
+<section>
   <div class="wrap">
     <div class="callout">
       <h3>We're hiring</h3>
@@ -106,7 +88,7 @@ title: null
         {%- for post in open_posts -%}
         {{ post.title }}{% unless forloop.last %}, {% endunless %}
         {%- endfor -%}
-        — see <a href="{{ '/contact/' | relative_url }}">Contact &amp; join us</a> for details.
+        — see <a href="{{ '/contact/' | relative_url }}">Join us</a> for details.
       </p>
     </div>
   </div>
