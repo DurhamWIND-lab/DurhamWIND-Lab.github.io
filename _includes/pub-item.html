@@ -1,0 +1,28 @@
+{%- comment -%}
+  One publication. Usage: {% include pub-item.html pub=p show_year=true %}
+  Group members' surnames are bolded automatically from site.yml -> group_surnames.
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+
+{%- assign authors = pub.authors -%}
+{%- for surname in site.data.site.group_surnames -%}
+  {%- capture bolded %}<strong>{{ surname }}</strong>{% endcapture -%}
+  {%- assign authors = authors | replace: surname, bolded -%}
+{%- endfor -%}
+
+<li class="pub">
+  <p class="pub-title">{{ pub.title }}</p>
+  <p class="pub-authors">{{ authors }}</p>
+  {%- if pub.venue %}<p class="pub-venue">{{ pub.venue }}{% if include.show_year %} ({{ pub.year }}){% endif %}</p>{% endif -%}
+
+  <p class="pub-links">
+    {%- if pub.theme and include.hide_theme != true -%}
+    <span class="pill pill-theme">{{ site.data.site.themes[pub.theme] }}</span>
+    {%- endif -%}
+    {%- if pub.doi %}<a class="pill" href="{{ pub.doi }}">DOI</a>{% endif -%}
+    {%- if pub.preprint %}<a class="pill" href="{{ pub.preprint }}">Preprint</a>{% endif -%}
+    {%- if pub.repo %}<a class="pill" href="{{ pub.repo }}">Code</a>{% endif -%}
+  </p>
+
+  {%- if pub.note %}<p class="pub-note">{{ pub.note }}</p>{% endif -%}
+</li>

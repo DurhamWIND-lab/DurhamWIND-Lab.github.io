@@ -1,0 +1,87 @@
+---
+layout: default
+title: Contact & join us
+permalink: /contact/
+lede: We welcome collaboration, and enquiries from prospective students and researchers.
+description: Contact DurhamWIND at Durham University, and current openings for postdoctoral researchers and PhD students in wind energy and atmospheric flow.
+---
+
+{%- assign data = site.data.site -%}
+
+<section>
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Where to find us</h2>
+      <p class="muted">
+        {%- for line in data.contact.address_lines -%}
+        {{ line }}{% unless forloop.last %}<br>{% endunless %}
+        {%- endfor -%}
+      </p>
+      <p><a href="https://www.durham.ac.uk/departments/academic/engineering/">Department of Engineering →</a><br>
+         <a href="https://www.durham.ac.uk/departments/academic/mathematical-sciences/">Department of Mathematical Sciences →</a></p>
+    </div>
+
+    <div>
+      <h2>Get in touch</h2>
+      <p>General enquiries and collaboration:<br>
+         <a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a></p>
+      <p>Code, data and issues:<br>
+         <a href="{{ site.github_org }}">{{ site.github_org | remove: "https://" }}</a></p>
+    </div>
+
+    <div>
+      <h2>Investigators</h2>
+      {%- assign investigators = site.data.people | where: "role", "investigator" -%}
+      {%- for person in investigators -%}
+      <p style="margin-bottom:.6rem">
+        <a href="{{ '/people/' | relative_url }}#{{ person.id }}">{{ person.name }}</a><br>
+        <span class="muted small">{{ person.department }}</span>
+        {%- if person.email %}<br><a class="small" href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif -%}
+      </p>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- assign open_posts = data.openings | where: "open", true -%}
+<section class="section-tint">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Openings</h2>
+      <p>Current advertised positions in the group.</p>
+    </div>
+
+    {%- if open_posts.size > 0 -%}
+    <div class="card-grid">
+      {%- for post in open_posts -%}
+      <div class="card">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.summary | strip_newlines | strip }}</p>
+        <p class="muted small" style="margin-top:.75rem">
+          Led by {{ post.lead }}{% if post.co_investigators %}, with {{ post.co_investigators | join: " and " }} as co-investigator{% if post.co_investigators.size != 1 %}s{% endif %}{% endif %}.
+        </p>
+        {%- if post.closing_date and post.closing_date != "" -%}
+        <p class="muted small">Closing date: {{ post.closing_date }}</p>
+        {%- endif -%}
+        {%- if post.url and post.url != "" -%}
+        <a class="card-link" href="{{ post.url }}">Details and application →</a>
+        {%- else -%}
+        <a class="card-link" href="mailto:{{ data.contact.email }}">Enquire by email →</a>
+        {%- endif -%}
+      </div>
+      {%- endfor -%}
+    </div>
+    {%- else -%}
+    <p class="muted">No advertised positions at the moment.</p>
+    {%- endif -%}
+
+    <div class="callout" style="margin-top:2rem">
+      <h3>Prospective PhD students</h3>
+      <p>We are always glad to hear from strong candidates interested in wind energy, atmospheric
+         turbulence and environmental fluid mechanics — including those bringing a background in
+         applied mathematics, machine learning or data science rather than classical fluid
+         dynamics. Email a CV and a short note on what interests you to
+         <a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a>.</p>
+    </div>
+  </div>
+</section>

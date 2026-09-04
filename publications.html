@@ -1,0 +1,57 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+lede: Peer-reviewed journal articles by group members on wind energy and the atmospheric flows wind farms sit in.
+description: Publications from DurhamWIND at Durham University — wake modelling, atmospheric boundary layer flows, wake steering, floating offshore wind and energy systems.
+---
+
+{%- assign pubs = site.data.publications -%}
+{%- assign years = pubs | map: "year" | uniq | sort | reverse -%}
+
+<section>
+  <div class="wrap">
+    <p class="muted">
+      Most of this work is collaborative. Full credit goes to all co-authors — please see each
+      publication record for the complete author list and affiliations. Group members' names are
+      shown in bold. Individual investigators' complete records, including work outside wind
+      energy, are linked from the <a href="{{ '/people/' | relative_url }}">People</a> page.
+    </p>
+
+    {%- for year in years -%}
+    {%- assign in_year = pubs | where: "year", year -%}
+    <div class="year-block">
+      <h2 id="y{{ year }}">{{ year }}</h2>
+      <ul class="pub-list">
+        {%- for pub in in_year -%}
+        {% include pub-item.html pub=pub %}
+        {%- endfor -%}
+      </ul>
+    </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<section class="section-tint">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Elsewhere</h2>
+      <p>Conference papers, book chapters and work beyond wind energy are listed on each
+         member's own profile.</p>
+    </div>
+    <div class="card-grid">
+      {%- assign investigators = site.data.people | where: "role", "investigator" -%}
+      {%- for person in investigators -%}
+      <div class="card">
+        <h3>{{ person.name }}</h3>
+        <p>{{ person.department }}</p>
+        <p class="person-links">
+          {%- if person.links.scholar %}<a href="{{ person.links.scholar }}">Google Scholar</a>{% endif -%}
+          {%- if person.links.durham %}<a href="{{ person.links.durham }}">Durham profile</a>{% endif -%}
+          {%- if person.links.orcid %}<a href="{{ person.links.orcid }}">ORCID</a>{% endif -%}
+        </p>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

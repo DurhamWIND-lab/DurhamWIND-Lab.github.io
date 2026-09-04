@@ -1,0 +1,241 @@
+# ---------------------------------------------------------------------------
+# DurhamWIND — group members.
+#
+# THIS IS THE SOURCE OF TRUTH FOR PEOPLE. Editing this file updates both the
+# website (durhamwind-lab.github.io/people) and Profile/people.md on the
+# GitHub org page. Do not edit people.md by hand — it is regenerated.
+#
+# To add someone:
+#   1. Drop a square-ish photo in Profile/Images/  (e.g. Firstname.jpg)
+#   2. Copy the template block at the bottom of this file and fill it in.
+#   3. Commit. The site picks it up within the hour, or immediately via the
+#      "Sync content from .github" workflow's Run workflow button.
+#
+# Fields: `name`, `role` and `title` are required. Everything else is optional
+# and is simply omitted from the rendered page when absent.
+#   role:      must match a `key` in site.yml -> roles
+#   expertise: must match keys in site.yml -> expertise
+#   photo:     filename inside Profile/Images/ (omit for the placeholder)
+# ---------------------------------------------------------------------------
+
+# =========================== INVESTIGATORS =================================
+
+- id: majid-bastankhah
+  name: Majid Bastankhah
+  title: Associate Professor
+  role: investigator
+  department: Department of Engineering
+  photo: Majid.jpg
+  email: majid.bastankhah@durham.ac.uk
+  expertise:
+    - wake-modelling
+    - aerodynamics
+    - experimental-fluid-mechanics
+    - atmospheric-boundary-layer
+    - turbulence
+  links:
+    scholar: https://scholar.google.com/citations?user=784pzQQAAAAJ&hl=en
+    durham: https://www.durham.ac.uk/staff/majid-bastankhah/
+    linkedin: https://www.linkedin.com/in/majid-bastankhah-23058240/
+  bio: >
+    I am a fluid dynamicist with a deep interest in environmental science and
+    sustainable energy, particularly offshore wind. I earned my BSc and MSc in
+    Mechanical Engineering from Sharif University of Technology in Iran, then
+    moved to EPFL in Switzerland for my PhD, joining Durham in 2018. We use
+    theory, simulation and laboratory experiment to understand how wind
+    turbines and wind farms interact with the atmosphere. Colleagues in the
+    wind energy community may know me best for analytical wake models — the
+    Gaussian, or Bastankhah, wake model among them — which are used across
+    academia and industry and are implemented in tools such as FLORIS (NREL)
+    and PyWake (DTU). My main passion is building simple, physically grounded
+    models by simplifying the equations that govern fluid motion: models
+    rooted in fundamental physics but practical enough for the fast-paced
+    world of industry. More recently that work has expanded into data-driven
+    methods that build on physics-based modelling rather than replacing it.
+  roles_extra:
+    - Associate Editor, Wind Energy Science
+    - Editorial Board, Wind Energy
+    - Fellow of the Higher Education Academy
+
+# TODO(Majid): Hossein's bio below is adapted from kafiabad.com and his Durham
+# staff page. Worth sending him the rendered page before you announce it.
+- id: hossein-amini-kafiabad
+  name: Hossein Amini Kafiabad
+  title: Associate Professor
+  role: investigator
+  department: Department of Mathematical Sciences
+  photo: Hossein.jpg
+  email: hossein.amini-kafiabad@durham.ac.uk
+  expertise:
+    - geophysical-fluid-dynamics
+    - turbulence
+    - applied-mathematics
+    - cfd-les
+  links:
+    website: https://kafiabad.com/
+    scholar: https://scholar.google.com/citations?user=Rv1ZtYAAAAAJ&hl=en
+    orcid: https://orcid.org/0000-0002-8791-9217
+    durham: https://www.durham.ac.uk/staff/hossein-amini-kafiabad/
+  bio: >
+    I am an applied mathematician and fluid dynamicist in the Department of
+    Mathematical Sciences. My research is in numerical and theoretical
+    geophysical fluid dynamics, and most prominently in the interaction of
+    waves, vortices and turbulence in the atmosphere and ocean. I also develop
+    computational tools and methods for problems across physics and
+    engineering. I completed my PhD at McGill University with Prof. Peter
+    Bartello, studying balance dynamics in rotating stratified turbulence, and
+    from 2018 to 2022 was a postdoctoral researcher and university teacher at
+    the University of Edinburgh with Prof. Jacques Vanneste. Within
+    DurhamWIND, my work connects wind farm flows to the large-scale
+    atmospheric dynamics they sit inside.
+
+# TODO(Majid): Nima's bio below is adapted from his Durham staff page and
+# rephrased in the first person to match the rest of the page. Worth his
+# sign-off before launch.
+- id: nima-gerami-seresht
+  name: Nima Gerami-Seresht
+  title: Assistant Professor of Sustainable and Resilient Infrastructure
+  role: investigator
+  department: Department of Engineering
+  photo: Nima.jpg
+  email: nima.gerami-seresht@durham.ac.uk
+  expertise:
+    - machine-learning
+    - risk-resilience
+    - digital-infrastructure
+    - optimisation-control
+  links:
+    scholar: https://scholar.google.com/citations?hl=en&user=gNiWjhEAAAAJ
+    durham: https://www.durham.ac.uk/staff/nima-gerami-seresht/
+    linkedin: https://www.linkedin.com/in/nima-gerami-seresht/
+  bio: >
+    I work on sustainable and resilient infrastructure, having received my PhD
+    in Construction Engineering and Management from the University of Alberta
+    in 2017. My theoretical research concerns dynamic multi-agent systems,
+    granular computing and building information modelling; my applied work is
+    directed at digital construction, simulating construction processes, and
+    the sustainability and resilience of urban infrastructure. I apply
+    artificial intelligence techniques — fuzzy computation, machine learning
+    and computer vision — to capture human behaviour in the built environment.
+    In wind energy, my research addresses risk identification and assessment
+    for wind farm projects: the deployment and delivery side of getting
+    renewable capacity built.
+
+# =========================== PHD STUDENTS ==================================
+
+- id: jordan-fuentes-holden
+  name: Jordan Fuentes Holden
+  title: PhD Student
+  role: phd
+  department: Department of Engineering
+  photo: Jordan.jpg
+  expertise:
+    - flow-control
+    - aerodynamics
+    - experimental-fluid-mechanics
+  project: >
+    I develop a smart wind turbine with trailing-edge flaps that can actively
+    control the airflow around the blades and manipulate its wake to improve
+    efficiency and overall performance.
+  supervisors:
+    - Majid Bastankhah (primary)
+    - David Sims-Williams
+    - Lian Gan
+    - Jim Gilbert (University of Hull)
+
+- id: mohammad-roshani
+  name: Mohammad Roshani
+  title: PhD Student
+  role: phd
+  department: Department of Engineering
+  photo: Mohammad.JPG
+  email: mohammad.roshani@durham.ac.uk
+  expertise:
+    - floating-offshore
+    - wake-modelling
+    - aerodynamics
+  bio: >
+    I am a PhD student working on floating offshore wind at Durham University.
+    I am interested in how wind flows interact with floating wind turbines,
+    especially because these turbines can move in all six degrees of freedom.
+  supervisors:
+    - Majid Bastankhah (primary)
+    - Jacob Burrows (EDF UK R&D, Lead Researcher)
+    - Christophe Peyrard (EDF R&D France, floating offshore wind)
+
+- id: alexia-everley
+  name: Alexia Everley
+  title: PhD Student
+  role: phd
+  department: Department of Engineering
+  photo: Alexia.jpg
+  email: alexia.everley@durham.ac.uk
+  expertise:
+    - reduced-order-modelling
+    - atmospheric-boundary-layer
+    - applied-mathematics
+  bio: >
+    Having studied mathematics in the form of an MMath degree at Durham
+    University, I am now a PhD student within the Department of Engineering at
+    Durham University.
+  project: >
+    The main focus of my work is on developing reduced order models to
+    simulate flow around wind farms. I am interested in capturing the
+    interactions between wind farms as well as the large-scale interaction
+    with the atmospheric boundary layer.
+  supervisors:
+    - Majid Bastankhah (Department of Engineering, Durham University)
+    - Hossein Amini Kafiabad (Department of Mathematical Sciences, Durham University)
+
+# TODO(Majid): Andreo's Durham profile is essentially empty. Please add a bio
+# and project description, or forward this file to him.
+- id: andreo-chimal-garcia
+  name: Andreo Chimal Garcia
+  title: PhD Student
+  role: phd
+  department: Department of Engineering
+  expertise:
+    - geophysical-fluid-dynamics
+    - applied-mathematics
+  supervisors:
+    - Majid Bastankhah (Department of Engineering, Durham University)
+    - Hossein Amini Kafiabad (Department of Mathematical Sciences, Durham University)
+
+# TODO(Majid): Same for Joshua — bio and project needed.
+- id: joshua-prowse
+  name: Joshua Prowse
+  title: PhD Student
+  role: phd
+  department: Department of Engineering
+  expertise:
+    - aerodynamics
+  supervisors:
+    - Majid Bastankhah (primary)
+
+# ---------------------------------------------------------------------------
+# TEMPLATE — copy, uncomment, fill in, delete what you don't need.
+# ---------------------------------------------------------------------------
+# - id: firstname-lastname          # lowercase, hyphenated; must be unique
+#   name: Firstname Lastname
+#   title: Postdoctoral Research Associate
+#   role: postdoc                   # investigator | postdoc | phd | msc | visitor | alum
+#   department: Department of Engineering
+#   photo: Firstname.jpg            # in Profile/Images/ — omit for placeholder
+#   email: firstname.lastname@durham.ac.uk
+#   expertise:                      # keys from site.yml -> expertise
+#     - wake-modelling
+#     - machine-learning
+#   links:
+#     website: https://example.com
+#     scholar: https://scholar.google.com/citations?user=XXXX
+#     orcid: https://orcid.org/0000-0000-0000-0000
+#     durham: https://www.durham.ac.uk/staff/firstname-lastname/
+#     github: https://github.com/username
+#     linkedin: https://www.linkedin.com/in/username/
+#   bio: >
+#     A short paragraph in the first person.
+#   project: >
+#     What they are working on, if it needs saying separately from the bio.
+#   supervisors:
+#     - Majid Bastankhah (primary)
+#   alum_note: "Now a postdoc at ..."   # only for role: alum

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- assign page_title = page.title | default: site.title -%}
+  {%- assign page_desc = page.description | default: site.description -%}
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{{ page_desc | strip_newlines | strip }}">
+
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_desc | strip_newlines | strip }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌬️</text></svg>">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-mark" aria-hidden="true">🌬️</span>
+      <span class="brand-text">
+        <strong>DurhamWIND</strong>
+        <small>Durham University</small>
+      </span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span></label>
+
+    <nav class="site-nav" aria-label="Main">
+      {%- for item in site.nav -%}
+      <a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {%- endfor -%}
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  {%- unless page.hide_header -%}
+  <div class="page-head">
+    <div class="wrap">
+      <h1>{{ page.title }}</h1>
+      {%- if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif -%}
+    </div>
+  </div>
+  {%- endunless -%}
+
+  {{ content }}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand">DurhamWIND</p>
+      <p class="muted">{{ site.tagline }}</p>
+    </div>
+    <div>
+      <p class="footer-heading">Find us</p>
+      {%- assign contact = site.data.site.contact -%}
+      <p class="muted">
+        {%- for line in contact.address_lines -%}
+        {{ line }}{% unless forloop.last %}<br>{% endunless %}
+        {%- endfor -%}
+      </p>
+    </div>
+    <div>
+      <p class="footer-heading">Get in touch</p>
+      <p><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+      <p><a href="{{ site.github_org }}">GitHub</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p class="muted small">© {{ 'now' | date: "%Y" }} DurhamWIND, Durham University.</p>
+    <p class="muted small">Content maintained in <a href="{{ site.github_org }}/.github">the group's .github repository</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

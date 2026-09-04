@@ -1,0 +1,43 @@
+---
+layout: default
+title: People
+permalink: /people/
+lede: An interdisciplinary group spanning engineering and mathematics, from rotor aerodynamics to geophysical fluid dynamics to AI for energy infrastructure.
+description: The people of DurhamWIND — investigators, postdoctoral researchers and PhD students at Durham University working on wind energy and atmospheric flow.
+---
+
+{%- assign people = site.data.people -%}
+
+<section>
+  <div class="wrap">
+    {%- for role in site.data.site.roles -%}
+    {%- assign members = people | where: "role", role.key -%}
+    {%- if members.size > 0 -%}
+
+    <div class="section-head" {% unless forloop.first %}style="margin-top:3rem"{% endunless %}>
+      <h2 id="{{ role.key }}">{{ role.label }}</h2>
+      {%- assign blurb = role.blurb | strip_newlines | strip -%}
+      {%- if blurb != "" %}<p>{{ blurb }}</p>{% endif -%}
+    </div>
+
+    <div class="people-grid">
+      {%- for person in members -%}
+      {% include person-card.html person=person %}
+      {%- endfor -%}
+    </div>
+
+    {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<section class="section-tint">
+  <div class="wrap">
+    <div class="callout">
+      <h3>Joining us</h3>
+      <p>We welcome enquiries from prospective PhD students, postdoctoral researchers and
+         collaborators. See <a href="{{ '/contact/' | relative_url }}">Contact &amp; join us</a>,
+         or write to <a href="mailto:{{ site.data.site.contact.email }}">{{ site.data.site.contact.email }}</a>.</p>
+    </div>
+  </div>
+</section>

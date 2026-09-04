@@ -1,0 +1,68 @@
+# ---------------------------------------------------------------------------
+# DurhamWIND — research themes.
+#
+# SOURCE OF TRUTH for the website's Research page and the theme cards on the
+# home page. Each theme's `key` should match a key in site.yml -> themes so
+# publications tagged with it are listed automatically underneath.
+#
+# `people` holds `id` values from people.yml. `partners` and `funders` are
+# free text. Everything except `key`, `title` and `summary` is optional.
+# ---------------------------------------------------------------------------
+
+- key: wake-models
+  title: Wake models & wind-farm flow physics
+  summary: >
+    Fast, physically grounded analytical models of how a turbine's wake
+    develops and how wakes accumulate across a farm. The aim is always the
+    same: strip the governing equations back to something a designer can
+    actually run inside an optimisation loop, without losing the physics that
+    makes the answer right. Models developed here are implemented in FLORIS
+    (NREL) and PyWake (DTU).
+  people: [majid-bastankhah, alexia-everley, mohammad-roshani]
+
+- key: abl-gfd
+  title: Atmospheric boundary layer & geophysical fluid dynamics
+  summary: >
+    Wind farms are large enough to change the atmosphere they sit in. We study
+    that two-way coupling — farm-to-farm interaction, blockage, and the
+    large-scale response of the boundary layer — using reduced-order models
+    and the tools of geophysical fluid dynamics, including wave–vortex
+    interaction and Lagrangian averaging methods drawn from atmospheric and
+    ocean dynamics.
+  people: [hossein-amini-kafiabad, alexia-everley, andreo-chimal-garcia, majid-bastankhah]
+
+- key: experiments
+  title: Wind tunnel experiments
+  summary: >
+    Laboratory measurements of turbines interacting with turbulent
+    boundary-layer flows: miniature rotor design, wake structure and flow
+    dynamics, and the scaling questions that decide whether a tunnel result
+    says anything about a real farm.
+  people: [majid-bastankhah, jordan-fuentes-holden]
+
+- key: control
+  title: Wake steering & flow control
+  summary: >
+    Steering wakes away from downstream turbines, and controlling the flow at
+    the blade itself. Work spans analytical models of curled and skewed wakes
+    behind yawed rotors, validation against operational wind farm campaigns,
+    and smart rotors with actively actuated trailing-edge surfaces.
+  people: [majid-bastankhah, jordan-fuentes-holden, joshua-prowse]
+
+- key: floating
+  title: Floating offshore wind
+  summary: >
+    Floating platforms move in all six degrees of freedom, and the wake moves
+    with them. We study how platform motion changes wake behaviour and what
+    that means for wake steering, loads and economics in floating farms.
+  people: [mohammad-roshani, majid-bastankhah]
+  partners: EDF R&D
+
+- key: systems
+  title: Energy systems, risk & deployment
+  summary: >
+    Getting wind capacity built and delivered. This spans optimal energy and
+    reserve scheduling that accounts for wake interactions, and AI-based risk
+    identification and assessment for wind farm projects — the modelling that
+    sits between a good rotor and a working grid asset.
+  people: [nima-gerami-seresht, majid-bastankhah]

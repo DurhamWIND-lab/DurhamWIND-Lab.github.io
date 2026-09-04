@@ -1,0 +1,46 @@
+# DurhamWIND website — Jekyll configuration.
+#
+# Content is NOT edited here. People, publications and research themes live in
+# the DurhamWIND-lab/.github repository under Profile/data/, and are copied
+# into _data/ by .github/workflows/sync-content.yml. See README.md.
+
+title: DurhamWIND
+tagline: Atmospheric Flow and Wind Energy Dynamics Group
+description: >-
+  DurhamWIND is an interdisciplinary group at Durham University working on the
+  fluid mechanics of wind energy — wind-farm aerodynamics, atmospheric boundary
+  layer flows, geophysical fluid dynamics, and AI for energy infrastructure.
+
+url: https://durhamwind-lab.github.io
+baseurl: ""
+
+github_org: https://github.com/DurhamWIND-lab
+
+nav:
+  - title: Research
+    url: /research/
+  - title: People
+    url: /people/
+  - title: Publications
+    url: /publications/
+  - title: Contact
+    url: /contact/
+
+plugins:
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

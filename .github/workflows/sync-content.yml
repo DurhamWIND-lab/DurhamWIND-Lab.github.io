@@ -1,0 +1,100 @@
+# Pulls people, publications, research themes and photos from the group's
+# content repository (DurhamWIND-lab/.github) into this site.
+#
+# That repository is public, so this needs NO tokens and NO secrets. It runs
+# hourly, and can be triggered immediately from the Actions tab with
+# "Run workflow" whenever you want a change live straight away.
+#
+# Nothing here should ever be edited by hand — _data/ and assets/img/people/
+# are overwritten on every run.
+
+name: Sync content from .github
+
+on:
+  schedule:
+    - cron: "17 * * * *"      # hourly, at :17
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/sync-content.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-content
+  cancel-in-progress: true
+
+env:
+  SOURCE_REPO: DurhamWIND-lab/.github
+  SOURCE_REF: main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the content repository
+        run: |
+          git clone --depth 1 --branch "$SOURCE_REF" \
+            "https://github.com/${SOURCE_REPO}.git" /tmp/content
+
+      - name: Copy data files
+        run: |
+          set -euo pipefail
+          mkdir -p _data
+          for f in site people publications projects; do
+            src="/tmp/content/Profile/data/${f}.yml"
+            if [ ! -f "$src" ]; then
+              echo "::error::Missing ${src} in ${SOURCE_REPO} — refusing to sync a partial set."
+              exit 1
+            fi
+            cp "$src" "_data/${f}.yml"
+          done
+          ls -la _data
+
+      - name: Copy photos
+        run: |
+          set -euo pipefail
+          rm -rf assets/img/people
+          mkdir -p assets/img/people
+          # Copy image files only; the source directory also holds a placeholder marker.
+          find /tmp/content/Profile/Images -maxdepth 1 -type f \
+            \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) \
+            -exec cp {} assets/img/people/ \;
+          ls -la assets/img/people
+
+      - name: Sanity-check the copied data
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pyyaml
+          python - <<'PY'
+          import sys, pathlib, yaml
+          data = pathlib.Path("_data")
+          people = yaml.safe_load((data / "people.yml").read_text(encoding="utf-8"))
+          pubs   = yaml.safe_load((data / "publications.yml").read_text(encoding="utf-8"))
+          site   = yaml.safe_load((data / "site.yml").read_text(encoding="utf-8"))
+          if not people or not pubs or not site:
+              sys.exit("One of the synced data files is empty — aborting.")
+          missing = [
+              p["photo"] for p in people
+              if p.get("photo") and not (pathlib.Path("assets/img/people") / p["photo"]).exists()
+          ]
+          if missing:
+              sys.exit(f"Photos referenced but not synced: {missing}")
+          print(f"OK — {len(people)} people, {len(pubs)} publications.")
+          PY
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data assets/img/people
+          if git diff --cached --quiet; then
+            echo "Site content is already up to date."
+            exit 0
+          fi
+          git commit -m "Sync content from ${SOURCE_REPO}"
+          git push

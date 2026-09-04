@@ -1,0 +1,123 @@
+# ---------------------------------------------------------------------------
+# DurhamWIND — global site settings and controlled vocabularies.
+#
+# This file is the single source of truth for the group's name, blurbs, and
+# the labels/ordering used across the website and the GitHub org profile.
+# Edit here; both renderers pick it up.
+# ---------------------------------------------------------------------------
+
+name: DurhamWIND
+full_name: "DurhamWIND: Atmospheric Flow and Wind Energy Dynamics Group"
+institution: Durham University
+url: https://durhamwind-lab.github.io
+github_org: https://github.com/DurhamWIND-lab
+
+tagline: Atmospheric flow and wind energy dynamics at Durham University
+
+# One paragraph. Used on the site home page and the org profile README.
+intro: >
+  DurhamWIND is an interdisciplinary group at Durham University working on the
+  fluid mechanics of wind energy — from the aerodynamics of a single rotor to
+  the interaction of whole wind farms with the atmospheric boundary layer, and
+  on to the systems that get that energy built and delivered. We bring together
+  wind-farm aerodynamics and laboratory experiment, geophysical fluid dynamics
+  and applied mathematics, and artificial intelligence for infrastructure and
+  risk, across the Departments of Engineering and Mathematical Sciences.
+
+contact:
+  email: majid.bastankhah@durham.ac.uk
+  address_lines:
+    - Department of Engineering
+    - Durham University
+    - Lower Mountjoy, South Road
+    - Durham DH1 3LE
+    - United Kingdom
+
+# --- Role tiers -------------------------------------------------------------
+# `key` is what a person's `role:` field must match. Order here is the order
+# sections appear on the People page.
+roles:
+  - key: investigator
+    label: Investigators
+    blurb: >
+      Academic staff leading the group's research across engineering and
+      mathematics.
+  - key: postdoc
+    label: Postdoctoral Researchers
+    blurb: ""
+  - key: phd
+    label: PhD Students
+    blurb: ""
+  - key: msc
+    label: Masters Students
+    blurb: ""
+  - key: visitor
+    label: Visitors
+    blurb: ""
+  - key: alum
+    label: Alumni
+    blurb: ""
+
+# --- Expertise vocabulary ---------------------------------------------------
+# Rendered as a keyword line beneath each person's name. Add a person from a
+# new field? Add the term here, then reference its key in people.yml.
+# (Not currently used as a filter — the group is small. The site template can
+# switch filtering on later without any change to the data.)
+expertise:
+  wake-modelling:            Wake modelling
+  aerodynamics:              Aerodynamics
+  geophysical-fluid-dynamics: Geophysical fluid dynamics
+  atmospheric-boundary-layer: Atmospheric boundary layer
+  turbulence:                Turbulence
+  experimental-fluid-mechanics: Experimental fluid mechanics
+  cfd-les:                   CFD & large-eddy simulation
+  applied-mathematics:       Applied mathematics
+  reduced-order-modelling:   Reduced-order modelling
+  machine-learning:          Machine learning
+  optimisation-control:      Optimisation & control
+  flow-control:              Flow control
+  floating-offshore:         Floating offshore wind
+  power-systems:             Power systems
+  risk-resilience:           Risk & resilience
+  digital-infrastructure:    Digital infrastructure
+
+# --- Author bolding ---------------------------------------------------------
+# Surnames bolded automatically in author lists on the Publications page, so
+# group members stand out. Add new members' surnames here.
+group_surnames:
+  - Bastankhah
+  - Kafiabad
+  - Gerami Seresht
+  - Gerami-Seresht
+  - Everley
+  - Roshani
+  - Fuentes Holden
+  - Chimal Garcia
+  - Prowse
+
+# --- Open positions ---------------------------------------------------------
+# Shown on the Contact & Join us page. Delete the entry (or set `open: false`)
+# once a post closes and it disappears from the site.
+openings:
+  - open: true
+    title: Postdoctoral Research Associate
+    lead: Majid Bastankhah
+    co_investigators:
+      - Hossein Amini Kafiabad
+    summary: >
+      A postdoctoral position on the group's atmospheric flow and wind energy
+      research, bridging the Departments of Engineering and Mathematical
+      Sciences.
+    # TODO(Majid): add the official Durham advert URL and the closing date.
+    url: ""
+    closing_date: ""
+
+# --- Publication themes -----------------------------------------------------
+# Used to tag entries in publications.yml and to group the Research page.
+themes:
+  wake-models:      Wake models & wind-farm flow physics
+  abl-gfd:          Atmospheric boundary layer & geophysical fluid dynamics
+  experiments:      Wind tunnel experiments
+  control:          Wake steering & flow control
+  floating:         Floating offshore wind
+  systems:          Energy systems, risk & deployment
