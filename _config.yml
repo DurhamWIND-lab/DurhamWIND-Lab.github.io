@@ -17,6 +17,8 @@ baseurl: ""
 github_org: https://github.com/DurhamWIND-lab
 
 nav:
+  - title: Home
+    url: /
   - title: Research
     url: /research/
   - title: People
