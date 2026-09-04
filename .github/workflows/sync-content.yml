@@ -66,7 +66,15 @@ jobs:
           rm -rf assets/img/figures
           mkdir -p assets/img/figures
           if [ -d /tmp/content/Profile/Figures ]; then
-            find /tmp/content/Profile/Figures -maxdepth 1 -type f               \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png'                  -o -iname '*.gif' -o -iname '*.webp' -o -iname '*.svg' \)               -exec cp {} assets/img/figures/ \;
+            # Video too: a theme's `image:` may point at an .mp4/.webm, which
+            # figure.html renders as a <video>. Without these globs the file
+            # never reaches the site and the build check fails on a missing
+            # figure — which is the right failure, but a confusing one.
+            find /tmp/content/Profile/Figures -maxdepth 1 -type f \
+              \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \
+                 -o -iname '*.gif' -o -iname '*.webp' -o -iname '*.svg' \
+                 -o -iname '*.mp4' -o -iname '*.webm' \) \
+              -exec cp {} assets/img/figures/ \;
           fi
           ls -la assets/img/figures
 

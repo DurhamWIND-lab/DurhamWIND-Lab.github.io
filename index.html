@@ -36,40 +36,6 @@ hide_header: true
   </div>
 </div>
 
-{%- comment -%}
-  Collaboration, directly under the hero and ahead of the research themes.
-  It is the second thing on the page on purpose: the group would rather a
-  visitor understood how it works before reading what it works on. The same
-  point used to live only in small grey type at the top of the Publications
-  page, where it read as a disclaimer instead of a belief.
-{%- endcomment -%}
-<section class="section-tint">
-  <div class="wrap collab">
-    <div>
-      <h2>{{ c.collab_heading }}</h2>
-      <p class="collab-statement">{{ c.collab_statement }}</p>
-    </div>
-    <div class="collab-body">
-      <p>{{ c.collab_text | strip_newlines | strip }}</p>
-
-      {%- comment -%}
-        Affiliations are the one thing that cannot be generated from the
-        publication data — the papers carry co-author names but not where
-        those people work. So this block stays hidden until the list in
-        site.yml is filled in by hand, rather than showing a stub.
-      {%- endcomment -%}
-      {%- if c.collab_institutions and c.collab_institutions.size > 0 -%}
-      <p class="collab-note">{{ c.collab_institutions_note | strip_newlines | strip }}</p>
-      <ul class="collab-institutions">
-        {%- for place in c.collab_institutions -%}
-        <li>{{ place }}</li>
-        {%- endfor -%}
-      </ul>
-      {%- endif -%}
-    </div>
-  </div>
-</section>
-
 <section>
   <div class="wrap">
     <div class="section-head">
@@ -88,7 +54,6 @@ hide_header: true
 
     <div class="card-grid">
       {%- for theme in site.data.projects -%}
-      {%- assign theme_pubs = site.data.publications | where: "theme", theme.key -%}
       {%- comment -%}
         A theme with `feature: true` in projects.yml spans the whole grid. The
         aerodynamics theme covers what used to be three separate entries, so as
@@ -106,12 +71,7 @@ hide_header: true
         {%- else -%}
         <p>{{ theme.summary | strip_newlines | strip | truncatewords: 34 }}</p>
         {%- endif -%}
-        <p class="card-foot">
-          <a class="card-link" href="{{ '/research/' | relative_url }}#{{ theme.key }}">Read more →</a>
-          {%- if theme_pubs.size > 0 -%}
-          <span class="card-count">{{ theme_pubs.size }} paper{% unless theme_pubs.size == 1 %}s{% endunless %}</span>
-          {%- endif -%}
-        </p>
+        <a class="card-link" href="{{ '/research/' | relative_url }}#{{ theme.key }}">Read more →</a>
       </div>
       {%- endfor -%}
     </div>

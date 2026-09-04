@@ -2,15 +2,36 @@
   A figure from Profile/Figures/.
 
   Params: file, alt (required), caption, credit, class, eager
+
+  `file` may be a still image or a video (.mp4/.webm) — the extension decides
+  which element is emitted, so a theme's `image:` key can point at either
+  without the data files needing a second key for it.
+
   Most of these are white-background journal figures, so the frame always
   paints a light ground — in dark mode they would otherwise glare, and
   inverting them would falsify the data.
 {%- endcomment -%}
 {%- if include.file and include.alt -%}
-<figure class="fig {{ include.class }}">
+{%- assign ext = include.file | split: "." | last | downcase -%}
+{%- assign is_video = false -%}
+{%- if ext == "mp4" or ext == "webm" -%}{%- assign is_video = true -%}{%- endif -%}
+<figure class="fig {{ include.class }}{% if is_video %} fig-video{% endif %}">
+  {%- if is_video -%}
+  {%- comment -%}
+    `controls` is not decoration: anything that moves by itself for more than
+    five seconds needs a way to stop it (WCAG 2.2.2), and this loops. Muted
+    plus playsinline is what lets it autoplay at all on iOS and in Chrome.
+  {%- endcomment -%}
+  <video
+      src="{{ '/assets/img/figures/' | append: include.file | relative_url }}"
+      autoplay loop muted playsinline controls
+      preload="{% if include.eager %}auto{% else %}metadata{% endif %}"
+      aria-label="{{ include.alt | strip_newlines | strip }}"></video>
+  {%- else -%}
   <img src="{{ '/assets/img/figures/' | append: include.file | relative_url }}"
        alt="{{ include.alt | strip_newlines | strip }}"
        {% if include.eager %}loading="eager" fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %}>
+  {%- endif -%}
   {%- if include.caption or include.credit -%}
   <figcaption>
     {%- if include.caption %}{{ include.caption | strip_newlines | strip }}{% endif -%}

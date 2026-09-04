@@ -52,9 +52,14 @@
     with them. We study how platform motion changes wake behaviour and what
     that means for wake steering, loads and economics in floating farms.
   partners: EDF R&D
-  image: offshore-farm.jpg
+  # A video rather than a still — figure.html switches on the file extension.
+  image: floating-platform.mp4
   image_alt: >
-    A row of offshore wind turbines seen from the sea.
+    Simulation of the wake behind a floating wind turbine, in three panels. A horizontal cut and a vertical cut through the wake each show it as a blue low-speed band spreading downstream of the rotor and shifting as the platform moves; beneath them, time histories of the platform's surge, sway and heave. The running surge, sway, heave, roll and pitch values are printed across the top.
+  image_caption: >
+    A floating platform moves in all six degrees of freedom and the wake moves
+    with it. The two cuts through the wake are shown against the platform
+    motion driving them.
 
 - key: systems
   title: Energy systems, risk & deployment

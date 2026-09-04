@@ -23,8 +23,13 @@ copy_key: research
       </div>
       <p>{{ theme.summary | strip_newlines | strip }}</p>
 
+      {%- comment -%}
+        `image_caption` is optional and most themes do without one — the
+        summary above already says what the figure shows. A video earns one,
+        since what you are looking at is less obvious than in a still.
+      {%- endcomment -%}
       {%- if theme.image -%}
-      {% include figure.html file=theme.image alt=theme.image_alt credit=theme.image_credit %}
+      {% include figure.html file=theme.image alt=theme.image_alt caption=theme.image_caption credit=theme.image_credit %}
       {%- endif -%}
 
       {%- comment -%}
@@ -55,9 +60,7 @@ copy_key: research
         </ul>
         {%- if theme_pubs.size > 3 -%}
         <p class="theme-pubs-more">
-          <a href="{{ '/publications/' | relative_url }}">
-            All {{ theme_pubs.size }} papers on this theme →
-          </a>
+          <a href="{{ '/publications/' | relative_url }}">All papers on this theme →</a>
         </p>
         {%- endif -%}
       </div>

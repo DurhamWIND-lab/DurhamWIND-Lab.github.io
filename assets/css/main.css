@@ -222,44 +222,13 @@ section + section { border-top: 1px solid var(--line); }
 .strand h3 { font-size: 1rem; margin-bottom: .35rem; }
 .strand p { color: var(--ink-soft); font-size: .93rem; margin: 0; }
 
-/* --- collaboration -------------------------------------------------------- */
-
-/* Statement left, substance right — the two-column split gives the short line
-   room to carry weight instead of reading as a stray sentence. Single column
-   below 860px, where two columns would leave both too narrow. */
-.collab { display: grid; gap: 1.25rem 3rem; grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 860px) {
-  .collab { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: start; }
-}
-.collab h2 { margin-bottom: .6rem; }
-.collab-statement {
-  font-size: clamp(1.3rem, 1.05rem + 1.1vw, 1.85rem);
-  font-weight: 650; line-height: 1.25; letter-spacing: -0.015em;
-  color: var(--purple); max-width: 22ch; margin: 0;
-}
-.collab-body > p { font-size: 1.02rem; color: var(--ink-soft); max-width: 68ch; }
-.collab-body > p:last-child { margin-bottom: 0; }
-
-/* Qualified with .collab-body so it outranks `.collab-body > p` above, which
-   would otherwise win on specificity and reset the size. */
-.collab-body > .collab-note { font-size: .82rem; color: var(--ink-faint); margin-bottom: .5rem; }
-.collab-institutions {
-  display: flex; flex-wrap: wrap; gap: .5rem;
-  list-style: none; margin: 0; padding: 0;
-}
-.collab-institutions li {
-  font-size: .86rem; color: var(--ink-soft);
-  border: 1px solid var(--line); border-radius: 100px;
-  padding: .25rem .7rem; background: var(--bg);
-}
-
 /* --- cards ---------------------------------------------------------------- */
 
 .card-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 
-/* Column flex so that the link (and the paper count beside it) sits on the
-   card's baseline rather than floating under a short summary — the theme cards
-   have summaries of quite different lengths. */
+/* Column flex so the link sits on the card's baseline rather than floating
+   under a short summary — the theme cards have summaries of quite different
+   lengths. */
 .card {
   border: 1px solid var(--line); border-radius: var(--radius);
   padding: 1.35rem; background: var(--bg);
@@ -272,16 +241,6 @@ section + section { border-top: 1px solid var(--line); }
   font-size: .9rem; font-weight: 550;
 }
 
-/* Link and paper count share the card's bottom row. Selectors are qualified
-   with .card because `.card p { margin: 0 }` above would otherwise outrank the
-   auto margin that pushes this row to the foot of the card. */
-.card .card-foot {
-  display: flex; flex-wrap: wrap; align-items: baseline;
-  justify-content: space-between; gap: .5rem 1rem;
-  margin: auto 0 0; padding-top: .9rem;
-}
-.card .card-foot .card-link { align-self: auto; margin-top: 0; padding-top: 0; }
-.card-count { font-size: .82rem; color: var(--ink-faint); white-space: nowrap; }
 
 /* The group's core theme, spanning the whole grid. Tinted and rule-topped in
    palatinate so it reads as the lead rather than a card that happens to be
@@ -439,6 +398,17 @@ section + section { border-top: 1px solid var(--line); }
   max-width: 62ch;
 }
 .fig-credit { display: block; margin-top: .2rem; color: var(--ink-faint); font-size: .78rem; }
+
+/* A video figure, framed like an image figure. `height: auto` lets the file's
+   own aspect ratio set the box, so a 16:9 clip and a square one both sit
+   correctly without being told their shape here. The ground is white, not
+   black: these are rendered plots on white like the still figures, and a dark
+   backdrop shows as a hard edge around them while the frame letterboxes. */
+.fig-video video {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: #fff;
+}
 
 /* The hero figure sits beside the headline on wide screens, under it on narrow. */
 .fig-hero { margin-top: 2rem; max-width: 560px; }

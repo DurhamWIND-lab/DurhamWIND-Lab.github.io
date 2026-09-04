@@ -36,12 +36,14 @@ banner:
 
 # One paragraph. Used on the site home page and the org profile README.
 intro: >
-  DurhamWIND is an interdisciplinary group at Durham University working on the
+  DurhamWIND is a multidisciplinary group at Durham University working on the
   fluid mechanics of wind energy — from the aerodynamics of a single rotor to
   the interaction of whole wind farms with the atmospheric boundary layer, and
-  on to the systems that get that energy built and delivered. We bring together expertise in
-  wind-farm aerodynamics, laboratory experiment, geophysical fluid dynamics
-  and applied mathematics, and artificial intelligence.
+  on to the systems that get that energy built and delivered. We bring together
+  expertise in wind-farm aerodynamics, laboratory experiment, geophysical fluid
+  dynamics and applied mathematics, and artificial intelligence. Nearly all of
+  this is done jointly with colleagues elsewhere, and we learn a great deal
+  from them.
 
 # No group-wide contact address, by design: the group is collaborative, and a
 # single mailto reads as though one person fronts it. Enquiries go to whichever
@@ -60,8 +62,7 @@ roles:
   - key: investigator
     label: Investigators
     blurb: >
-      Academic staff leading the group's research across engineering and
-      mathematics.
+      Academic staff leading the group's research.
   - key: postdoc
     label: Postdoctoral Researchers
     blurb: ""
@@ -119,43 +120,10 @@ copy:
       runs from the wake of a single rotor up to this farm-scale picture —
       blockage ahead of the farm, entrainment from above, and the waves the
       farm sets off on the inversion overhead.
-    # --- Collaboration ------------------------------------------------------
-    # Sits directly under the hero, ahead of the research themes, because it is
-    # the first thing the group wants a visitor to understand about how it
-    # works. Deliberately not a footnote: the previous version of this said the
-    # same thing in small grey type at the top of the Publications page, where
-    # it read as a disclaimer rather than as a belief.
-    #
-    # Keep it about what we learn from other people. It must not turn into a
-    # list of our own achievements with the word "collaborative" attached.
-    collab_heading: Working with other people
-    collab_statement: Almost none of this was done alone.
-    collab_text: >
-      The work on these pages is shared with colleagues at universities,
-      research institutes and companies around the world, and the group is a
-      great deal better for it. We learn an enormous amount from the people we
-      publish with — from those who measure what we can only model, who argue
-      us out of a bad assumption, or who show us that a result does not hold in
-      their data. Full credit for each paper belongs to all of its authors, and
-      the author lists on the Publications page are the real record of who did
-      the work. If you think about these problems too, we would be glad to hear
-      from you.
-    # Rendered as a list under the statement above, and hidden entirely while
-    # the list is empty — so it is safe to leave until it is ready.
-    #
-    # TODO(Majid): this is the one thing on the site that cannot be generated
-    # from the publication data. The papers carry co-author names but not their
-    # affiliations, so listing institutions here is the only way to show the
-    # spread — and it has to be written by someone who actually knows it.
-    # Order does not matter; the page prints them as given.
-    collab_institutions: []
-    collab_institutions_note: >
-      Institutions we have published or worked with.
 
     themes_heading: Research themes
     themes_blurb: >
-      What we work on, spanning the Departments of Engineering and Mathematical
-      Sciences.
+      What we work on.
     code_heading: Open code
     code_blurb: We publish the code and data behind our papers wherever we can.
     code_fallback_heading: Everything else
@@ -189,9 +157,8 @@ copy:
   people:
     title: People
     lede: >
-      An interdisciplinary group spanning engineering and mathematics, from
-      rotor aerodynamics to geophysical fluid dynamics to AI for energy
-      infrastructure.
+      A multidisciplinary group, from rotor aerodynamics to geophysical fluid
+      dynamics to AI for energy infrastructure.
     description: >
       The people of DurhamWIND — investigators, postdoctoral researchers and
       PhD students at Durham University working on wind energy and atmospheric
@@ -210,9 +177,10 @@ copy:
     description: >
       Publications from DurhamWIND at Durham University — wind farm
       aerodynamics, wake steering, floating offshore wind and energy systems.
-    # Shown as a callout at the top of the page, not as grey small print. It
-    # says the same thing as copy.home.collab_* in the register this page
-    # needs; the two are kept separate so each can be edited on its own.
+    # Shown as a callout at the top of the page, not as grey small print. This
+    # is where the group's position on credit lives; the home page carries only
+    # the one-line version at the end of the site-wide `intro` above, which is
+    # deliberate — a whole section on it up front was too much.
     credit_heading: A note on credit
     credit_text: >
       Almost none of this was done alone. Every paper here is shared with
@@ -272,9 +240,8 @@ openings:
     co_investigators:
       - Hossein Amini Kafiabad
     summary: >
-      A postdoctoral position on the group's atmospheric flow and wind energy
-      research, bridging the Departments of Engineering and Mathematical
-      Sciences.
+      A postdoctoral position on the group's multidisciplinary research into
+      atmospheric flow and wind energy.
     url: https://durham.taleo.net/careersection/du_ext/jobdetail.ftl?job=26000968&lang=en&src=JB10200
     # TODO(Majid): add the closing date from the advert, e.g. "12 October 2026".
     closing_date: ""
