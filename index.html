@@ -131,9 +131,14 @@ hide_header: true
     <div class="callout">
       <h3>{{ c.hiring_heading }}</h3>
       <p>
+        {%- comment -%}
+          `endfor %}` without the trailing dash on purpose: `-%}` would eat the
+          newline after it too and run the last title straight into the dash
+          ("…wind farms— see Join us").
+        {%- endcomment -%}
         {%- for title in live -%}
         {{ title }}{% unless forloop.last %}, {% endunless %}
-        {%- endfor -%}
+        {%- endfor %}
         — see <a href="{{ '/contact/' | relative_url }}">Join us</a> for details.
       </p>
     </div>
