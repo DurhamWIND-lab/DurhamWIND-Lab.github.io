@@ -186,13 +186,31 @@ section + section { border-top: 1px solid var(--line); }
 
 .card-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 
+/* Column flex so that the link (and the paper count beside it) sits on the
+   card's baseline rather than floating under a short summary — the theme cards
+   have summaries of quite different lengths. */
 .card {
   border: 1px solid var(--line); border-radius: var(--radius);
   padding: 1.35rem; background: var(--bg);
+  display: flex; flex-direction: column;
 }
 .card h3 { margin-bottom: .4rem; }
 .card p { color: var(--ink-soft); font-size: .94rem; margin: 0; }
-.card .card-link { display: inline-block; margin-top: .9rem; font-size: .9rem; font-weight: 550; }
+.card .card-link {
+  align-self: flex-start; margin-top: auto; padding-top: .9rem;
+  font-size: .9rem; font-weight: 550;
+}
+
+/* Link and paper count share the card's bottom row. Selectors are qualified
+   with .card because `.card p { margin: 0 }` above would otherwise outrank the
+   auto margin that pushes this row to the foot of the card. */
+.card .card-foot {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: .5rem 1rem;
+  margin: auto 0 0; padding-top: .9rem;
+}
+.card .card-foot .card-link { align-self: auto; margin-top: 0; padding-top: 0; }
+.card-count { font-size: .82rem; color: var(--ink-faint); white-space: nowrap; }
 
 /* --- people --------------------------------------------------------------- */
 
@@ -270,6 +288,15 @@ section + section { border-top: 1px solid var(--line); }
 .theme-meta dt { color: var(--ink-faint); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .2rem; }
 .theme-meta dd { margin: 0; }
 
+/* The papers belonging to a theme. Indented behind a rule so the list reads as
+   evidence for the theme above it rather than as a new section. */
+.theme-pubs { margin-top: 1.5rem; padding-left: 1.1rem; border-left: 2px solid var(--line); }
+.theme-pubs-head {
+  font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ink-faint); margin: 0 0 .9rem;
+}
+.theme-pubs-more { margin: 1rem 0 0; font-size: .9rem; font-weight: 550; }
+
 /* --- callouts ------------------------------------------------------------- */
 
 .callout {
@@ -341,4 +368,9 @@ section + section { border-top: 1px solid var(--line); }
   .hero .strands { grid-column: 1 / -1; }
 }
 
-.fig-wide { max-width: 720px; margin-inline: auto; margin-bottom: 2rem; }
+/* A banner figure — wide and shallow, with labels drawn inside it. Capping it
+   at 720px like the rest would shrink those labels past reading. It carries its
+   own background to the edge, so it needs no white mat. */
+.fig-banner { max-width: none; margin-inline: auto; margin-bottom: 2.25rem; }
+.fig-banner img { padding: 0; }
+.fig-banner figcaption { max-width: 78ch; }

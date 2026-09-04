@@ -71,22 +71,34 @@ copy:
     headline: The fluid mechanics of wind energy, from the blade to the atmospheric boundary layer.
     # Figures live in Profile/Figures/. `alt` is required — describe what the
     # image shows. `caption` appears beneath it; `credit` is the attribution.
-    hero_image: wake-velocity-field.jpg
+    #
+    # The home page carries two figures and they sit at deliberately different
+    # scales: the hero is the wake of ONE rotor, measured in the tunnel, and
+    # the figure above the research themes is a WHOLE FARM in the boundary
+    # layer. Between them they frame the range the group works across, which
+    # is what the headline claims. Do not set both to the same measurement.
+    hero_image: wake-velocity-field.gif
     hero_alt: >
-      Measured velocity field behind a model wind turbine in a wind tunnel,
-      with the wake showing as a dark low-speed band spreading downstream
-      through faster surrounding flow.
-    hero_caption: The wake of a model turbine, measured in the wind tunnel.
-    figure_image: wake-velocity-field.gif
-    figure_alt: >
       Animated wind tunnel measurements behind a model turbine, cycling between
-      the wind speed field, where the wake appears as a dark low-speed band,
-      and the vorticity field, where rows of tip and root vortices show as
-      discrete red and blue cores.
+      the wind speed field, where the wake appears as a dark low-speed band
+      spreading downstream, and the vorticity field, where rows of tip and root
+      vortices show as discrete red and blue cores.
+    hero_caption: >
+      The wake of a model turbine, measured in the wind tunnel, in wind speed
+      and then vorticity. The wake is unsteady, and that unsteadiness is what
+      sets how quickly it recovers.
+    figure_image: wind_farm.png
+    figure_alt: >
+      Schematic of a wind farm in the atmospheric boundary layer: inflow wind
+      speed and potential temperature profiles at the left, flow blockage
+      upstream of the turbine row, a farm wake spreading downstream and fed by
+      turbulent entrainment from above, and a capping inversion beneath the
+      free atmosphere carrying interfacial and internal waves.
     figure_caption: >
-      The same measurement in motion, in wind speed and then vorticity. The
-      wake is unsteady, and that unsteadiness is what sets how quickly it
-      recovers.
+      A wind farm is large enough to change the atmosphere it sits in. Our work
+      runs from the wake of a single rotor up to this farm-scale picture —
+      blockage ahead of the farm, entrainment from above, and the waves the
+      farm sets off on the inversion overhead.
     themes_heading: Research themes
     themes_blurb: >
       What we work on, spanning the Departments of Engineering and Mathematical

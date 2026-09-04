@@ -43,17 +43,27 @@ hide_header: true
       <p>{{ c.themes_blurb | strip_newlines | strip }}</p>
     </div>
 
+    {%- comment -%}
+      The farm-scale schematic. `fig-banner` lets it use the full content
+      column: it is close to 4:1 and its interior labels are unreadable when
+      the figure is capped at the usual 720px.
+    {%- endcomment -%}
     {%- if c.figure_image -%}
-    {% include figure.html file=c.figure_image alt=c.figure_alt caption=c.figure_caption class="fig-wide" %}
+    {% include figure.html file=c.figure_image alt=c.figure_alt caption=c.figure_caption class="fig-banner" %}
     {%- endif -%}
-
 
     <div class="card-grid">
       {%- for theme in site.data.projects -%}
+      {%- assign theme_pubs = site.data.publications | where: "theme", theme.key -%}
       <div class="card">
         <h3>{{ theme.title }}</h3>
         <p>{{ theme.summary | strip_newlines | strip | truncatewords: 34 }}</p>
-        <a class="card-link" href="{{ '/research/' | relative_url }}#{{ theme.key }}">Read more →</a>
+        <p class="card-foot">
+          <a class="card-link" href="{{ '/research/' | relative_url }}#{{ theme.key }}">Read more →</a>
+          {%- if theme_pubs.size > 0 -%}
+          <span class="card-count">{{ theme_pubs.size }} paper{% unless theme_pubs.size == 1 %}s{% endunless %}</span>
+          {%- endif -%}
+        </p>
       </div>
       {%- endfor -%}
     </div>

@@ -10,6 +10,13 @@ copy_key: research
     <p class="muted" style="max-width:68ch">{{ c.intro | strip_newlines | strip }}</p>
 
     {%- for theme in site.data.projects -%}
+    {%- comment -%}
+      Papers are attached to a theme by their `theme:` key in publications.yml,
+      so this list maintains itself as papers are added — nothing here needs
+      touching. Newest first; the three most recent are shown inline and the
+      rest are one click away on the Publications page.
+    {%- endcomment -%}
+    {%- assign theme_pubs = site.data.publications | where: "theme", theme.key | sort: "year" | reverse -%}
     <div class="theme" id="{{ theme.key }}">
       <div class="theme-head">
         <h2>{{ theme.title }}</h2>
@@ -34,6 +41,26 @@ copy_key: research
         <div><dt>Funding</dt><dd>{{ theme.funders }}</dd></div>
         {%- endif -%}
       </dl>
+      {%- endif -%}
+
+      {%- if theme_pubs.size > 0 -%}
+      <div class="theme-pubs">
+        <h3 class="theme-pubs-head">
+          {%- if theme_pubs.size > 3 -%}Recent papers{%- else -%}Papers{%- endif -%}
+        </h3>
+        <ul class="pub-list">
+          {%- for pub in theme_pubs limit: 3 -%}
+          {% include pub-item.html pub=pub show_year=true hide_theme=true %}
+          {%- endfor -%}
+        </ul>
+        {%- if theme_pubs.size > 3 -%}
+        <p class="theme-pubs-more">
+          <a href="{{ '/publications/' | relative_url }}">
+            All {{ theme_pubs.size }} papers on this theme →
+          </a>
+        </p>
+        {%- endif -%}
+      </div>
       {%- endif -%}
     </div>
     {%- endfor -%}

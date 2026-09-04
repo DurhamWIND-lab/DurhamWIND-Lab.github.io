@@ -16,8 +16,12 @@
   {%- if pub.venue %}<p class="pub-venue">{{ pub.venue }}{% if include.show_year %} ({{ pub.year }}){% endif %}</p>{% endif -%}
 
   <p class="pub-links">
+    {%- comment -%}
+      The theme pill links to that theme on the Research page, which lists its
+      papers — so the two pages point at each other rather than only one way.
+    {%- endcomment -%}
     {%- if pub.theme and include.hide_theme != true -%}
-    <span class="pill pill-theme">{{ site.data.site.themes[pub.theme] }}</span>
+    <a class="pill pill-theme" href="{{ '/research/' | relative_url }}#{{ pub.theme }}">{{ site.data.site.themes[pub.theme] }}</a>
     {%- endif -%}
     {%- if pub.doi %}<a class="pill" href="{{ pub.doi }}">DOI</a>{% endif -%}
     {%- if pub.preprint %}<a class="pill" href="{{ pub.preprint }}">Preprint</a>{% endif -%}
