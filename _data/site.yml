@@ -19,10 +19,9 @@ intro: >
   DurhamWIND is an interdisciplinary group at Durham University working on the
   fluid mechanics of wind energy — from the aerodynamics of a single rotor to
   the interaction of whole wind farms with the atmospheric boundary layer, and
-  on to the systems that get that energy built and delivered. We bring together
-  wind-farm aerodynamics and laboratory experiment, geophysical fluid dynamics
-  and applied mathematics, and artificial intelligence for infrastructure and
-  risk, across the Departments of Engineering and Mathematical Sciences.
+  on to the systems that get that energy built and delivered. We bring together expertise in
+  wind-farm aerodynamics, laboratory experiment, geophysical fluid dynamics
+  and applied mathematics, and artificial intelligence.
 
 # No group-wide contact address, by design: the group is collaborative, and a
 # single mailto reads as though one person fronts it. Enquiries go to whichever
@@ -69,7 +68,7 @@ roles:
 copy:
   home:
     eyebrow: Durham University
-    headline: The fluid mechanics of wind energy, from the blade to the boundary layer.
+    headline: The fluid mechanics of wind energy, from the blade to the atmospheric boundary layer.
     themes_heading: Research themes
     themes_blurb: >
       What we work on, spanning the Departments of Engineering and Mathematical
@@ -79,22 +78,7 @@ copy:
     code_fallback_heading: Everything else
     code_fallback_text: All of the group's public repositories live in one GitHub organisation.
     hiring_heading: We're hiring
-    # The three lines under the headline. Add or remove freely — the layout
-    # adapts, and no number is quoted anywhere.
-    strands:
-      - heading: Aerodynamics & experiment
-        text: >
-          Analytical wake models and wind tunnel measurements of how turbines
-          interact with turbulent flow.
-      - heading: Geophysical fluid dynamics
-        text: >
-          The atmosphere a wind farm sits in, and how a farm large enough to
-          change it changes it back.
-      - heading: AI, systems & deployment
-        text: >
-          Scheduling, risk and resilience — the modelling between a good rotor
-          and a working grid asset.
-
+   
   research:
     title: Research
     lede: >
