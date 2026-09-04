@@ -114,17 +114,6 @@ img { max-width: 100%; height: auto; }
   object-fit: cover; object-position: 50% 25%;
 }
 
-/* Optional university logo, bottom-left over the photo. The scrim behind it is
-   part of the logo box rather than the whole band: it keeps the mark legible
-   against sky or foliage without dimming the photograph. */
-.site-banner-logo {
-  position: absolute; left: max(1.25rem, calc((100% - var(--wrap)) / 2 + 1.25rem));
-  bottom: 1rem; height: clamp(28px, 5vw, 44px); width: auto;
-  padding: .5rem .7rem; border-radius: 8px;
-  background: color-mix(in srgb, #fff 82%, transparent);
-}
-
-
 /* --- header --------------------------------------------------------------- */
 
 .site-header {
@@ -399,11 +388,19 @@ section + section { border-top: 1px solid var(--line); }
 }
 .fig-credit { display: block; margin-top: .2rem; color: var(--ink-faint); font-size: .78rem; }
 
-/* A video figure, framed like an image figure. `height: auto` lets the file's
-   own aspect ratio set the box, so a 16:9 clip and a square one both sit
-   correctly without being told their shape here. The ground is white, not
-   black: these are rendered plots on white like the still figures, and a dark
-   backdrop shows as a hard edge around them while the frame letterboxes. */
+/* A video figure sits smaller than a still one. At the shared 720px cap it
+   took the same footprint as its neighbours but read as far heavier: it is
+   mostly white space, and it moves, and motion pulls the eye in a way a
+   static figure does not. Detail is not lost by shrinking it — the controls
+   give a fullscreen button, which is a better way to read fine axis labels
+   than a slightly larger box in the page flow. */
+.fig-video { max-width: 520px; }
+
+/* Framed like an image figure. `height: auto` lets the file's own aspect ratio
+   set the box, so a 16:9 clip and a square one both sit correctly without
+   being told their shape here. The ground is white, not black: these are
+   rendered plots on white like the still figures, and a dark backdrop shows as
+   a hard edge around them while the frame letterboxes. */
 .fig-video video {
   display: block; width: 100%; height: auto;
   border: 1px solid var(--line); border-radius: var(--radius);

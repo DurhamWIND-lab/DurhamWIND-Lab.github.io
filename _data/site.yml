@@ -21,18 +21,11 @@ tagline: Atmospheric flow and wind energy dynamics at Durham University
 #
 # Use a wide, shallow photo: it is cropped to a band roughly 3.5:1 and anchored
 # so the skyline stays in frame as the viewport narrows.
-#
-# `logo` is optional and overlays the band. Leave it empty until an official
-# Durham University asset is in place: the logo is a trademark with its own
-# clear-space and colour rules, so it should come from the University's brand
-# portal rather than be recreated or pulled off the web.
 banner:
   image: durham-cathedral.jpg
   alt: >
     Durham Castle and Cathedral on the wooded peninsula above the River Wear,
     with Framwellgate Bridge crossing the river below.
-  logo: ""
-  logo_alt: Durham University
 
 # One paragraph. Used on the site home page and the org profile README.
 intro: >
